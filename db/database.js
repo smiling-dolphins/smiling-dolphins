@@ -1,4 +1,3 @@
-var pg = require('pg');
 var Promise = require('bluebird');
 
 var dbOptions = {
@@ -39,26 +38,26 @@ var buildTable = function(name, callback) {
   });
 };
 
-var users = buildTable('users', function(){
+var users = buildTable('users', function(table){
   table.increments('id').primary();
   table.string('username').unique();
   table.string('instagram_id');
 });
 
-var trips = buildTable('trips', function(){
+var trips = buildTable('trips', function(table){
   table.increments('id').primary();
   table.string('name').notNullable();
   table.integer('user_id');
 });
 
-var locations = buildTable('locations', function(){
+var locations = buildTable('locations', function(table){
   table.increments('id').primary();
   table.float('lat').notNullable();
   table.float('lng').notNullable();
   table.integer('trip_id');
 });
 
-var photos = buildTable('photos', function(){
+var photos = buildTable('photos', function(table){
   table.increments('id').primary();
   table.string('url');
   table.string('thumb_url');
