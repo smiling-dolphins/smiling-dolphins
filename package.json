@@ -32,9 +32,13 @@
     "update-index-async": "node -e \"require('shelljs/global'); sed('-i', /\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/, '//@@NG_LOADER_START@@\\n' + sed(/sourceMappingURL=angular-loader.min.js.map/,'sourceMappingURL=bower_components/angular-loader/angular-loader.min.js.map','app/bower_components/angular-loader/angular-loader.min.js') + '\\n//@@NG_LOADER_END@@', 'app/index-async.html');\""
   },
   "dependencies": {
+    "bluebird": "^2.10.1",
+    "body-parser": "^1.14.1",
     "bookshelf": "^0.8.2",
     "express": "^4.13.3",
     "knex": "^0.8.6",
+    "passport": "^0.3.0",
+    "passport-instagram": "^1.0.0",
     "pg": "^4.4.2"
   }
 }
