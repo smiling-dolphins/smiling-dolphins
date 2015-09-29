@@ -50,22 +50,17 @@ var trips = buildTable('trips', function(table){
   table.integer('user_id');
 });
 
-var locations = buildTable('locations', function(table){
-  table.increments('id').primary();
-  table.float('lat').notNullable();
-  table.float('lng').notNullable();
-  table.integer('trip_id');
-});
-
 var photos = buildTable('photos', function(table){
   table.increments('id').primary();
   table.string('url');
   table.string('thumb_url');
-  table.integer('location_id');
+  table.float('lat').notNullable();
+  table.float('lng').notNullable();
+  table.integer('trip_id');
   table.integer('user_id');
 });
 
-var tables = [users, trips, locations, photos];
+var tables = [users, trips, photos];
 
 Promise.all(tables)
 .then(function(tables) {
