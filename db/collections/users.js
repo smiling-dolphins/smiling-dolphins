@@ -1,5 +1,6 @@
 var db = require('../config');
 var Promise = require('bluebird');
+
 // require needed model(s)
 require('../models/user');
 
@@ -7,8 +8,10 @@ require('../models/user');
 var Users = db.Collection.extend({
   model: db.model('User')
   }, {
-  // Users collection methods:
+	// Users collection methods:
+  fetchAll : function (){
+  	return db.collection('Users').forge().fetchAll();
+  }
+  });
 
-});
-
-module.exports = db.collection('Users', Users);
+  module.exports = db.collection('Users', Users);
