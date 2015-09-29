@@ -18,7 +18,7 @@ var Photos = db.Collection.extend({
     })
     .fetch();
   },
-  fetchByTrip: function(tripId, userId){
+  fetchByTripAndUser: function(tripId, userId){
     return db.collection('Photos')
     .forge()
     .query(function(qb){
