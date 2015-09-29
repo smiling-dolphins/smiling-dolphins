@@ -19,7 +19,7 @@ var Photo = db.Model.extend({
     return new this({
       id: id
     }).fetch({
-      withRelated: ['User', 'Trip']
+      withRelated: ['user', 'trip']
     });
   },
   newPhoto: function(options){
