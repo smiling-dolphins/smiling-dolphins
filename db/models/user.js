@@ -24,8 +24,7 @@ var User = db.Model.extend({
   },
   newUser: function(options) {
     return new this(options);
-  }
-    
-  }); user.fetchByusername().then(function(data){})
+  }   
+  });
 
 module.exports = db.model('User', User);
