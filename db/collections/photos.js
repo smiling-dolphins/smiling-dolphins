@@ -1,8 +1,8 @@
 var db = require('../config');
 var Promise = require('bluebird');
 // require needed model(s)
-require('..models/user');
-require('..models/trip');
+require('../models/user');
+require('../models/trip');
 require('../models/photo');
 
 // db.Collection.extend
