@@ -18,11 +18,11 @@ var Photos = db.Collection.extend({
     })
     .fetch();
   },
-  fetchByTrip: function(tripId){
+  fetchByTrip: function(tripId, userId){
     return db.collection('Photos')
     .forge()
     .query(function(qb){
-      qb.where('trip_id', '=', tripId);
+      qb.where('trip_id', '=', tripId).andWhere('user_id', '=', userId);
     })
     .fetch();
   }
