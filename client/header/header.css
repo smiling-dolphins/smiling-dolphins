@@ -1,0 +1,16 @@
+.nav {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.logo {
+  width: 74%;
+  text-align: center;
+  padding-left: 25%;
+}
+
+.btns {
+  width: 25%;
+  padding-right: 25px;
+  text-align: right;
+}
