@@ -1,6 +1,6 @@
 var InstagramStrategy = require("passport-instagram").Strategy
-var Auth = require("/auth.js");
-var User = require("..db/models/user");
+var Auth = require("./auth.js");
+var User = require("../db/models/user");
 
 module.exports = function (passport) {
 
@@ -42,5 +42,5 @@ module.exports = function (passport) {
             })
           }
         }
-      }
-    }
+      }));
+    };
