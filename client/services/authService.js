@@ -1,0 +1,1 @@
+// Make and export auth service that checks if user is logged in
