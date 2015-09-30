@@ -24,23 +24,24 @@ module.exports = function (passport) {
 //If User isn't stored in our database, create a new user and store the Instagram ID in our database
 
     function(accessToken, refreshToken, profile, done) {
-      User.fetchById({instagram_id: profile.id}), function (err, user) {
-        if(err) {
-          return done(err);
-          }
-        if(user) {
+      db.model('User').fetchById({
+        instagram_id: profile.id
+      }).then(function(user) {
+        if (!user) {
+        // if user does not exist in our database
+          var user = db.model('User').newUser({
+            instagram_id: profile.id;
+          }).save();
           return done(null, user);
-          }
-        else {
-          var newUser = new User();
-            newUser.username = profile.id;
-            //newUser.token = token;
-            newUser.save(function (err) {
-              if(err)
-                throw err;
-              return done(null, newUser);
-            })
-          }
+        } else {
+        // if user exists in our database
+          return done(null, user);
         }
-      }));
-    };
+      }).catch(function(err) {
+        console.err(err);
+      });
+
+
+    }
+  ));
+};
