@@ -30,29 +30,46 @@ app.get("/", function (req, res) {
 
 })
 //Direct to Instagram Login
-// app.get('/auth/instagram',
-//   passport.authenticate('instagram'));
-//
-// //Redirect Back to Home Page upon Authentication
-// app.get('/auth/instagram/callback',
-//   passport.authenticate('instagram', { failureRedirect: '/login' }),
-//   function(req, res) {
-//     res.redirect('/');
-//   });
+app.get('/auth/instagram',
+  passport.authenticate('instagram'));
+
+//Redirect Back to Home Page upon Authentication
+app.get('/auth/instagram/callback',
+  passport.authenticate('instagram', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/');
+  });
 
 app.post('/api/trip', function (req, res) {
+  console.log('req:', req.body);
 
-  req.on("data", function (data) {
-    console.log("LOGGED :", data.toString())
-  })
-  // var tripName = req.body.name;
-  // new Trip({name = tripName}).fetch().then(function () {
-  //
-  // })
-  // var newTrip = Trip();
-  // newTrip.name = tripName;
-  // console.log(newTrip.name)
-  //create a new trip & send Instafeed post request for user
+  var tripName = req.body.name;
+  db.model('Trip').newTrip({name: tripName}).save();
+
+  var instaResults = []
+  var feed = new Instafeed({
+    get: 'user',
+    userId: 273734145,
+    accessToken: '22125417.d904cd4.44abd06ef59d43e5b0fc7e9b4f347ebb',
+    filter: function(image) {
+      if(image.tags.indexOf(tripName) >= 0){
+        instaResults.push(image);
+        console.log(instaResults);
+        return true;
+      }
+    },
+    links: true,
+    limit: 34,
+    target: 'instafeed',
+    sortBy: 'most-recent',
+    resolution: 'standard_resolution',
+    useHttp: true,
+  });
+
+  feed.run();
+
+
+  // create a new trip & send Instafeed post request for user
   // filter for newTrip tag we just created
   // add photos to the db with associated trip Id
 
