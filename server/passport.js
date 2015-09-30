@@ -24,7 +24,7 @@ module.exports = function (passport) {
 //If User isn't stored in our database, create a new user and store the Instagram ID in our database
 
     function(accessToken, refreshToken, profile, done) {
-      User.findOne({instagram_id: profile.id}), function (err, user) {
+      User.fetchById({instagram_id: profile.id}), function (err, user) {
         if(err) {
           return done(err);
           }

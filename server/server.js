@@ -7,6 +7,7 @@ var Photo = require("..db/models/photo");
 var passport = require("passport");
 
 var app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 require("/passport.js")(passport)
