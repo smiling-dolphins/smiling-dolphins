@@ -1,0 +1,13 @@
+.trips {
+  width: 20%;
+  display: block;
+  padding: 10px 25px;
+}
+
+.hashTag {
+
+}
+
+.hashTag:hover {
+  cursor: pointer;
+}

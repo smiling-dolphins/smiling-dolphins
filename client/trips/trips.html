@@ -1,0 +1,9 @@
+<div class="trips">
+  <input type="text" ng-model="search" placeholder="search...">
+  <ul ng-repeat="trip in tripsCtrl.trips">
+    <li>
+      <h5>{{trip.user}}</h5>
+      <p class="hashTag" ng-click="trips.showTrip()"># {{trip.name}}</p>
+    </li>
+  </ul>
+</div>
