@@ -36,6 +36,7 @@
     "body-parser": "^1.14.1",
     "bookshelf": "^0.8.2",
     "express": "^4.13.3",
+    "express-session": "^1.11.3",
     "knex": "^0.8.6",
     "passport": "^0.3.0",
     "passport-instagram": "^1.0.0",
