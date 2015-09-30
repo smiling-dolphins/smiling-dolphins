@@ -11,16 +11,22 @@
   <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="header/header.css">
   <link rel="stylesheet" href="trips/trips.css">
+  <link rel="stylesheet" href="map/map.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
   <header-dir></header-dir>
-  <trips-dir></trips-dir>
-  
+  <div class="container">
+    <trips-dir></trips-dir>
+    <map-dir></map-dir>
+  </div>
+
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="app.js"></script>
+  <script src="services/services.js"></script>
   <script src="header/header.js"></script>
   <script src="trips/trips.js"></script>
+  <script src="map/map.js"></script>
 </body>
 </html>

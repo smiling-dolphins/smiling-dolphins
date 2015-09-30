@@ -11,11 +11,18 @@ angular.module('Trips', [])
     }
   });
 
-
-TripsController.inject = ['$http'];
-function TripsController($http){
+TripsController.inject = ['$http', 'Fetcher'];
+function TripsController($http, Fetcher){
   var self = this;
   self.trips = [{user: "Justin", name: "Vegas"}, {user: "Chris", name: "SanDiego"}, {user: "Jeff", name: "MojaveDesert"}, {user: "Tommy", name: "HongKong"}];
 
-  // $http
+  // self.trips = Fetcher.getTrips();
+  // self.trip;
+
+  // self.addTrip = function(tripData){
+  //   // send $http to POST trip
+  //   // .then(function(response){
+       // self.trip = response.data;
+  // })
+  // }
 }

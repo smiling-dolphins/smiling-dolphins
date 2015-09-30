@@ -12,7 +12,7 @@ angular.module('Header', [])
   });
 
 
-HeaderController.inject = ['$http'];
-function HeaderController($http){
+HeaderController.inject = ['$http', 'Fetcher'];
+function HeaderController($http, Fetcher){
   var self = this;
 }

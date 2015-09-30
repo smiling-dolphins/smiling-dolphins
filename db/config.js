@@ -62,13 +62,13 @@ var photos = buildTable('photos', function(table){
 
 var tables = [users, trips, photos];
 
-Promise.all(tables)
-.then(function(tables) {
-  tables.forEach(function(table) {
-    if (table.created) {
-      console.log('Bookshelf: created table', table.name);
-    } else {
-      console.log('Bookshelf:', table.name, 'table already exists');
-    }
-  });
-});
+// Promise.all(tables)
+// .then(function(tables) {
+//   tables.forEach(function(table) {
+//     if (table.created) {
+//       console.log('Bookshelf: created table', table.name);
+//     } else {
+//       console.log('Bookshelf:', table.name, 'table already exists');
+//     }
+//   });
+// });

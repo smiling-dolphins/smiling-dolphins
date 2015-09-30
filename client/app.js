@@ -1,7 +1,9 @@
 angular.module('venshurApp', [
   'ui.router',
+  'venshurServices',
   'Header',
-  'Trips'
+  'Trips',
+  'Map'
 ]).
 config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/index");
