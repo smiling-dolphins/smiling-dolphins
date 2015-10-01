@@ -36,6 +36,15 @@ app.get('/auth/instagram/callback',
     res.redirect('/');
   });
 
+// app.param()
+app.get('/api/trip/:id', function(req, res){
+  var tripId = req.params.id;
+  console.log("this is the id: ", tripId);
+  db.model('Trip').fetchById(tripId).then(function(trip){
+    console.log(trip);
+  })
+});
+
 app.post('/api/trip', function (req, res) {
   console.log('req:', req.body);
 
