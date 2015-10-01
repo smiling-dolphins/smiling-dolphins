@@ -1,5 +1,4 @@
 angular.module('venshurApp', [
-  'ui.router',
   'venshurServices',
   'Header',
   'Trips',
