@@ -1,10 +1,9 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
+  "name": "smiling-dolphins",
+  "description": "smiling-dolphins",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "homepage": "https://github.com/smiling-dolphins/smiling-dolphins",
   "license": "MIT",
-  "private": true,
   "dependencies": {
     "angular": "~1.4.0",
     "angular-loader": "~1.4.0",
