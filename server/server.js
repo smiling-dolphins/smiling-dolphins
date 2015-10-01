@@ -2,13 +2,16 @@ var db = require('../db/config');
 var express = require('express');
 var bodyParser = require('body-parser');
 var http = require('http');
+var Promise = require('bluebird');
+var passport = require("passport");
+
 require('../db/models/user');
 require("../db/models/trip");
 require("../db/models/photo");
-var passport = require("passport");
 
 var app = express();
 var server = http.Server(app);
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -20,15 +23,21 @@ app.use(session({ secret: 'Frowning Dolphins' }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.static(__dirname + "/client"));
+app.use(express.static(__dirname + '/../client'));
 
-app.get("/", function (req, res) {
-  app.render("index")
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+app.get('/', function(req, res){
+  res.sendFile('/index.html');
 
 // Handle the Index Page
 // Pull all Trip data of all users w/ associated photos from db to post on page
 
-})
+});
 //Direct to Instagram Login
 app.get('/auth/instagram',
   passport.authenticate('instagram'));
@@ -78,23 +87,5 @@ app.post('/api/trip', function (req, res) {
 
 });
 
-app.listen(8000);
-console.log("listening on Port 8000...")
-// USERS:
-
-  // GET 1 user (with trips)
-
-  // POST 1 user
-
-
-// TRIPS:
-
-  // GET all trips (with users)
-
-  // GET 1 trip (with photos)
-
-  // POST 1 trip:
-    // call instafeed
-    // save tag(trip name) & photos(with user & trip IDs) data to our DB
-    // respond with OK
-    // return trip/photos data ???
+app.listen(process.env.PORT || 8000);
+console.log("Listening on port 8000...")

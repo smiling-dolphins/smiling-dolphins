@@ -1,0 +1,14 @@
+<div class="side-bar">
+  <input type="text" ng-model="search" placeholder="search...">
+  <hr/>
+  <div class="trip-list">
+    <ul class="vertical-list" ng-repeat="trip in tripsCtrl.trips | filter: search">
+      <li>
+        <p class="bold">@{{trip.user.username}}</p>
+        <p class="bold gray" ng-click="tripsCtrl.setTrip($index)">&nbsp;&nbsp;&nbsp;# {{trip.name}}</p>
+      </li>
+    </ul>
+  </div>
+  <br/>
+  <button class="btn" ng-click="tripsCtrl.addTrip()">add your trip!</button>
+</div>
