@@ -31,7 +31,7 @@ module.exports = function (passport) {
         if (!user) {
         // if user does not exist in our database
           return db.model('User').newUser({
-            instagram_id: profile.id;
+            instagram_id: profile.id
           }).save();
         } else {
         // if user exists in our database

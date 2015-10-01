@@ -1,0 +1,101 @@
+2015-10-01T21:43:05.742603+00:00 app[web.1]: npm ERR!     <https://github.com/npm/npm/issues>
+2015-10-01T21:43:05.777927+00:00 app[web.1]: 
+2015-10-01T21:43:05.716503+00:00 app[web.1]: npm ERR! argv "/app/.heroku/node/bin/node" "/app/.heroku/node/bin/npm" "start"
+2015-10-01T21:43:05.778350+00:00 app[web.1]: npm ERR!     /app/npm-debug.log
+2015-10-01T21:43:05.778222+00:00 app[web.1]: npm ERR! Please include the following file with any support request:
+2015-10-01T21:43:05.735838+00:00 app[web.1]: npm ERR! npm  v2.14.4
+2015-10-01T21:43:06.877054+00:00 heroku[web.1]: State changed from starting to crashed
+2015-10-01T21:43:06.878365+00:00 heroku[web.1]: State changed from crashed to starting
+2015-10-01T21:43:06.868668+00:00 heroku[web.1]: Process exited with status 1
+2015-10-01T21:43:08.936366+00:00 heroku[web.1]: Starting process with command `npm start`
+2015-10-01T21:43:11.360697+00:00 app[web.1]: npm ERR! argv "/app/.heroku/node/bin/node" "/app/.heroku/node/bin/npm" "start"
+2015-10-01T21:43:11.366926+00:00 app[web.1]: npm ERR! npm  v2.14.4
+2015-10-01T21:43:11.372334+00:00 app[web.1]: npm ERR! missing script: start
+2015-10-01T21:43:11.377591+00:00 app[web.1]: npm ERR! If you need help, you may report this error at:
+2015-10-01T21:43:11.404945+00:00 app[web.1]: 
+2015-10-01T21:43:11.362686+00:00 app[web.1]: npm ERR! node v4.1.1
+2015-10-01T21:43:11.405513+00:00 app[web.1]: npm ERR!     /app/npm-debug.log
+2015-10-01T21:43:11.356716+00:00 app[web.1]: npm ERR! Linux 3.13.0-61-generic
+2015-10-01T21:43:11.375304+00:00 app[web.1]: npm ERR! 
+2015-10-01T21:43:11.368524+00:00 app[web.1]: 
+2015-10-01T21:43:11.405296+00:00 app[web.1]: npm ERR! Please include the following file with any support request:
+2015-10-01T21:43:11.381262+00:00 app[web.1]: npm ERR!     <https://github.com/npm/npm/issues>
+2015-10-01T21:43:12.429038+00:00 heroku[web.1]: Process exited with status 1
+2015-10-01T21:43:12.448932+00:00 heroku[web.1]: State changed from starting to crashed
+2015-10-01T21:45:57.237518+00:00 heroku[slug-compiler]: Slug compilation started
+2015-10-01T21:45:57.237534+00:00 heroku[slug-compiler]: Slug compilation finished
+2015-10-01T21:45:57.164979+00:00 heroku[api]: Deploy 1be5e37 by jeff.w.harrison86@gmail.com
+2015-10-01T21:45:57.164979+00:00 heroku[api]: Release v8 created by jeff.w.harrison86@gmail.com
+2015-10-01T21:45:57.443394+00:00 heroku[web.1]: State changed from crashed to starting
+2015-10-01T21:45:59.883647+00:00 heroku[web.1]: Starting process with command `npm start`
+2015-10-01T21:46:02.481704+00:00 app[web.1]: npm ERR! argv "/app/.heroku/node/bin/node" "/app/.heroku/node/bin/npm" "start"
+2015-10-01T21:46:02.483697+00:00 app[web.1]: npm ERR!     <https://github.com/npm/npm/issues>
+2015-10-01T21:46:02.489424+00:00 app[web.1]: npm ERR! Please include the following file with any support request:
+2015-10-01T21:46:02.489623+00:00 app[web.1]: npm ERR!     /app/npm-debug.log
+2015-10-01T21:46:02.489137+00:00 app[web.1]: 
+2015-10-01T21:46:02.482530+00:00 app[web.1]: npm ERR! npm  v2.11.3
+2015-10-01T21:46:02.483277+00:00 app[web.1]: npm ERR! missing script: start
+2015-10-01T21:46:02.483568+00:00 app[web.1]: npm ERR! If you need help, you may report this error at:
+2015-10-01T21:46:02.483441+00:00 app[web.1]: npm ERR! 
+2015-10-01T21:46:02.482044+00:00 app[web.1]: npm ERR! node v0.12.7
+2015-10-01T21:46:02.481094+00:00 app[web.1]: npm ERR! Linux 3.13.0-61-generic
+2015-10-01T21:46:02.482915+00:00 app[web.1]: 
+2015-10-01T21:46:03.386091+00:00 heroku[web.1]: State changed from starting to crashed
+2015-10-01T21:46:03.373565+00:00 heroku[web.1]: Process exited with status 1
+2015-10-01T21:46:15.332467+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=stark-gorge-4936.herokuapp.com request_id=f4fd480c-0335-408e-9c7b-4dd1b2505255 fwd="192.69.243.2" dyno= connect= service= status=503 bytes=
+2015-10-01T21:46:15.978762+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=stark-gorge-4936.herokuapp.com request_id=54e9c2ed-fc1c-4df9-adc0-2ab4b384570c fwd="192.69.243.2" dyno= connect= service= status=503 bytes=
+2015-10-01T21:46:21.727672+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=stark-gorge-4936.herokuapp.com request_id=a632c663-97af-43a9-9714-3feabec6a0b6 fwd="192.69.243.2" dyno= connect= service= status=503 bytes=
+2015-10-01T21:46:22.209397+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=stark-gorge-4936.herokuapp.com request_id=50fb95a5-cdfc-41a6-8641-2b28ba065111 fwd="192.69.243.2" dyno= connect= service= status=503 bytes=
+2015-10-01T21:59:32.869846+00:00 heroku[slug-compiler]: Slug compilation started
+2015-10-01T21:59:32.869868+00:00 heroku[slug-compiler]: Slug compilation finished
+2015-10-01T21:59:32.805868+00:00 heroku[api]: Deploy 5393966 by jeff.w.harrison86@gmail.com
+2015-10-01T21:59:32.805906+00:00 heroku[api]: Release v9 created by jeff.w.harrison86@gmail.com
+2015-10-01T21:59:33.484365+00:00 heroku[web.1]: State changed from crashed to starting
+2015-10-01T21:59:36.623954+00:00 heroku[web.1]: Starting process with command `node ./server/server.js`
+2015-10-01T21:59:41.779658+00:00 app[web.1]: /app/server/passport.js:34
+2015-10-01T21:59:41.779681+00:00 app[web.1]:             instagram_id: profile.id;
+2015-10-01T21:59:41.779683+00:00 app[web.1]:                                     ^
+2015-10-01T21:59:41.779684+00:00 app[web.1]: SyntaxError: Unexpected token ;
+2015-10-01T21:59:41.779686+00:00 app[web.1]:     at exports.runInThisContext (vm.js:73:16)
+2015-10-01T21:59:41.779687+00:00 app[web.1]:     at Module._compile (module.js:443:25)
+2015-10-01T21:59:41.779689+00:00 app[web.1]:     at Object.Module._extensions..js (module.js:478:10)
+2015-10-01T21:59:41.779690+00:00 app[web.1]:     at Module.load (module.js:355:32)
+2015-10-01T21:59:41.779691+00:00 app[web.1]:     at Function.Module._load (module.js:310:12)
+2015-10-01T21:59:41.779692+00:00 app[web.1]:     at Module.require (module.js:365:17)
+2015-10-01T21:59:41.779694+00:00 app[web.1]:     at require (module.js:384:17)
+2015-10-01T21:59:41.779695+00:00 app[web.1]:     at Object.<anonymous> (/app/server/server.js:18:1)
+2015-10-01T21:59:41.779696+00:00 app[web.1]:     at Module._compile (module.js:460:26)
+2015-10-01T21:59:41.779698+00:00 app[web.1]:     at Object.Module._extensions..js (module.js:478:10)
+2015-10-01T21:59:41.779699+00:00 app[web.1]:     at Module.load (module.js:355:32)
+2015-10-01T21:59:41.779700+00:00 app[web.1]:     at Function.Module._load (module.js:310:12)
+2015-10-01T21:59:41.779701+00:00 app[web.1]:     at Function.Module.runMain (module.js:501:10)
+2015-10-01T21:59:41.779702+00:00 app[web.1]:     at startup (node.js:129:16)
+2015-10-01T21:59:41.779704+00:00 app[web.1]:     at node.js:814:3
+2015-10-01T21:59:43.002548+00:00 heroku[web.1]: State changed from starting to crashed
+2015-10-01T21:59:43.003787+00:00 heroku[web.1]: State changed from crashed to starting
+2015-10-01T21:59:42.985467+00:00 heroku[web.1]: Process exited with status 1
+2015-10-01T21:59:44.971648+00:00 heroku[web.1]: Starting process with command `node ./server/server.js`
+2015-10-01T21:59:47.216254+00:00 app[web.1]: /app/server/passport.js:34
+2015-10-01T21:59:47.216272+00:00 app[web.1]:             instagram_id: profile.id;
+2015-10-01T21:59:47.216273+00:00 app[web.1]:                                     ^
+2015-10-01T21:59:47.216275+00:00 app[web.1]: SyntaxError: Unexpected token ;
+2015-10-01T21:59:47.216276+00:00 app[web.1]:     at exports.runInThisContext (vm.js:73:16)
+2015-10-01T21:59:47.216277+00:00 app[web.1]:     at Module._compile (module.js:443:25)
+2015-10-01T21:59:47.216278+00:00 app[web.1]:     at Object.Module._extensions..js (module.js:478:10)
+2015-10-01T21:59:47.216279+00:00 app[web.1]:     at Module.load (module.js:355:32)
+2015-10-01T21:59:47.216280+00:00 app[web.1]:     at Function.Module._load (module.js:310:12)
+2015-10-01T21:59:47.216281+00:00 app[web.1]:     at Module.require (module.js:365:17)
+2015-10-01T21:59:47.216282+00:00 app[web.1]:     at require (module.js:384:17)
+2015-10-01T21:59:47.216283+00:00 app[web.1]:     at Object.<anonymous> (/app/server/server.js:18:1)
+2015-10-01T21:59:47.216284+00:00 app[web.1]:     at Module._compile (module.js:460:26)
+2015-10-01T21:59:47.216285+00:00 app[web.1]:     at Object.Module._extensions..js (module.js:478:10)
+2015-10-01T21:59:47.216286+00:00 app[web.1]:     at Module.load (module.js:355:32)
+2015-10-01T21:59:47.216288+00:00 app[web.1]:     at Function.Module._load (module.js:310:12)
+2015-10-01T21:59:47.216289+00:00 app[web.1]:     at Function.Module.runMain (module.js:501:10)
+2015-10-01T21:59:47.216290+00:00 app[web.1]:     at startup (node.js:129:16)
+2015-10-01T21:59:47.216291+00:00 app[web.1]:     at node.js:814:3
+2015-10-01T21:59:48.080680+00:00 heroku[web.1]: State changed from starting to crashed
+2015-10-01T21:59:48.060775+00:00 heroku[web.1]: Process exited with status 1
+2015-10-01T21:59:49.188444+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=stark-gorge-4936.herokuapp.com request_id=d059cc3a-0135-463c-b684-e5cb09daf9f5 fwd="192.69.243.2" dyno= connect= service= status=503 bytes=
+2015-10-01T21:59:49.024203+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=stark-gorge-4936.herokuapp.com request_id=90f41c0f-d20c-47d1-bb6e-be1209c056af fwd="192.69.243.2" dyno= connect= service= status=503 bytes=
+2015-10-01T21:59:49.590670+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=stark-gorge-4936.herokuapp.com request_id=5ae6f2c9-4b00-4b40-8047-9591f1a2f295 fwd="192.69.243.2" dyno= connect= service= status=503 bytes=
