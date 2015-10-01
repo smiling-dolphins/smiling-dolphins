@@ -25,19 +25,6 @@ app.use(passport.session());
 
 app.use(express.static(__dirname + '/../client'));
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
-app.get('/', function(req, res){
-  res.sendFile('/index.html');
-
-// Handle the Index Page
-// Pull all Trip data of all users w/ associated photos from db to post on page
-
-});
 //Direct to Instagram Login
 app.get('/auth/instagram',
   passport.authenticate('instagram'));
