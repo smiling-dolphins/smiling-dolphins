@@ -18,27 +18,34 @@ module.exports = function (passport) {
   passport.use(new InstagramStrategy({
     clientID: Auth.clientId,
     clientSecret: Auth.clientSecret,
+    passReqToCallback: true,
     callbackURL: "http://localhost:8000/auth/instagram/callback"
     },
 //____________________________________________________________________________
 //If User isn't stored in our database, create a new user and store the Instagram ID in our database
 
-    function(accessToken, refreshToken, profile, done) {
+    function(req, accessToken, refreshToken, profile, done) {
       db.model('User').fetchById({
         instagram_id: profile.id
       }).then(function(user) {
         if (!user) {
         // if user does not exist in our database
-          var user = db.model('User').newUser({
+          return db.model('User').newUser({
             instagram_id: profile.id;
           }).save();
-          return done(null, user);
         } else {
         // if user exists in our database
-          return done(null, user);
+          return user;
         }
+      }).then(function(user) {
+        // see fiddio user.js line 98
+        console.log("this is profile:", profile);
+        return user;
+      }).then(function(user) {
+        return done(null, user);
       }).catch(function(err) {
         console.err(err);
+        return done(err, false);
       });
 
 
