@@ -17,23 +17,5 @@ app.get('/', function(req, res){
   res.sendFile('/index.html');
 });
 
-// USERS: 
-
-  // GET 1 user (with trips)
-
-  // POST 1 user
-
-
-// TRIPS:
-
-  // GET all trips (with users)
-
-  // GET 1 trip (with photos)
-
-  // POST 1 trip:
-    // call instafeed
-    // save tag(trip name) & photos(with user & trip IDs) data to our DB
-    // respond with OK
-    // return trip/photos data ???
-app.listen(process.env.PORT || 3000);
-console.log("Listening...")
+app.listen(process.env.PORT || 8000);
+console.log("Listening on port 8000...")

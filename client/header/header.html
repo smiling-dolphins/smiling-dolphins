@@ -1,11 +1,11 @@
-<div class="navbar">
+<div class="navbar" ng-init="headerCtrl.randomBackground()" style="background: url({{headerCtrl.bgnd}}) no-repeat center">
   <div class="wrapper">
     <div class="nav welcome">
       <p>Welcome, {{username}}!</p>
     </div>
     <div class="nav logo">
       <h1>Venshur</h1>
-      <p>share your adventure</p>
+      <p class="slanted">share your adventure</p>
     </div>
     <div class="nav btns">
       <div class="nav">

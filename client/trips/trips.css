@@ -1,21 +1,36 @@
-.trips {
+.side-bar {
   width: 200px;
   display: inline-block;
   margin: 10px;
   padding: 10px 20px;
-  border: 1px solid green;
+  /*border: 1px solid green;*/
   text-align: left;
 }
 
-.hashTag {
-
+.trip-list {
+  height: 300px;
 }
 
-.hashTag:hover {
+.bold {
+  font-size: 1em;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+.gray {
+  font-size: 1.1em;
+  color: gray;
+}
+
+.gray:hover {
   cursor: pointer;
+  color: steelblue;
 }
 
-ul {
+.gray:active {
+  color: steelblue;
+}
+
+.vertical-list {
   list-style-type: none;
   padding: 0px;
 }

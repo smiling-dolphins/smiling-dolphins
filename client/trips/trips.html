@@ -1,11 +1,14 @@
-<div class="trips">
+<div class="side-bar">
   <input type="text" ng-model="search" placeholder="search...">
-  <ul ng-repeat="trip in tripsCtrl.trips">
-    <li>
-      <h5>{{trip.user}}</h5>
-      <p class="hashTag" ng-click="trips.showTrip()"># {{trip.name}}</p>
-    </li>
-  </ul>
+  <hr/>
+  <div class="trip-list">
+    <ul class="vertical-list" ng-repeat="trip in tripsCtrl.trips | filter: search">
+      <li>
+        <p class="bold">@{{trip.user.username}}</p>
+        <p class="bold gray" ng-click="tripsCtrl.setTrip($index)">&nbsp;&nbsp;&nbsp;# {{trip.name}}</p>
+      </li>
+    </ul>
+  </div>
   <br/>
-  <button ng-click="trips.addTrip()">Add your trip!</button>
+  <button class="btn" ng-click="tripsCtrl.addTrip()">add your trip!</button>
 </div>
