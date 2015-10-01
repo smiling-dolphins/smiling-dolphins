@@ -1,0 +1,101 @@
+2015-10-01T06:57:28.449383+00:00 app[web.1]:     throw err;
+2015-10-01T06:57:28.449385+00:00 app[web.1]:     ^
+2015-10-01T06:57:28.449386+00:00 app[web.1]: 
+2015-10-01T06:57:28.449387+00:00 app[web.1]: Error: Cannot find module '/server/server.js'
+2015-10-01T06:57:28.449389+00:00 app[web.1]:     at Function.Module._resolveFilename (module.js:336:15)
+2015-10-01T06:57:28.449390+00:00 app[web.1]:     at Function.Module._load (module.js:286:25)
+2015-10-01T06:57:28.449391+00:00 app[web.1]:     at Function.Module.runMain (module.js:475:10)
+2015-10-01T06:57:28.449392+00:00 app[web.1]:     at startup (node.js:117:18)
+2015-10-01T06:57:28.449393+00:00 app[web.1]:     at node.js:951:3
+2015-10-01T06:57:29.188774+00:00 heroku[web.1]: State changed from starting to crashed
+2015-10-01T06:57:29.177748+00:00 heroku[web.1]: Process exited with status 1
+2015-10-01T10:28:28.738822+00:00 heroku[web.1]: State changed from crashed to starting
+2015-10-01T10:28:31.481132+00:00 heroku[web.1]: Starting process with command `node /server/server.js`
+2015-10-01T10:28:32.974860+00:00 app[web.1]: module.js:338
+2015-10-01T10:28:32.974883+00:00 app[web.1]:     throw err;
+2015-10-01T10:28:32.974885+00:00 app[web.1]:     ^
+2015-10-01T10:28:32.974887+00:00 app[web.1]: 
+2015-10-01T10:28:32.974888+00:00 app[web.1]: Error: Cannot find module '/server/server.js'
+2015-10-01T10:28:32.974890+00:00 app[web.1]:     at Function.Module._resolveFilename (module.js:336:15)
+2015-10-01T10:28:32.974891+00:00 app[web.1]:     at Function.Module._load (module.js:286:25)
+2015-10-01T10:28:32.974893+00:00 app[web.1]:     at Function.Module.runMain (module.js:475:10)
+2015-10-01T10:28:32.974894+00:00 app[web.1]:     at startup (node.js:117:18)
+2015-10-01T10:28:32.974895+00:00 app[web.1]:     at node.js:951:3
+2015-10-01T10:28:33.735629+00:00 heroku[web.1]: Process exited with status 1
+2015-10-01T10:28:33.760135+00:00 heroku[web.1]: State changed from starting to crashed
+2015-10-01T16:18:04.756343+00:00 heroku[web.1]: State changed from crashed to starting
+2015-10-01T16:18:07.982553+00:00 heroku[web.1]: Starting process with command `node /server/server.js`
+2015-10-01T16:18:09.872105+00:00 app[web.1]: module.js:338
+2015-10-01T16:18:09.872132+00:00 app[web.1]:     throw err;
+2015-10-01T16:18:09.872134+00:00 app[web.1]:     ^
+2015-10-01T16:18:09.872135+00:00 app[web.1]: 
+2015-10-01T16:18:09.872138+00:00 app[web.1]:     at Function.Module._resolveFilename (module.js:336:15)
+2015-10-01T16:18:09.872137+00:00 app[web.1]: Error: Cannot find module '/server/server.js'
+2015-10-01T16:18:09.872141+00:00 app[web.1]:     at Function.Module.runMain (module.js:475:10)
+2015-10-01T16:18:09.872139+00:00 app[web.1]:     at Function.Module._load (module.js:286:25)
+2015-10-01T16:18:09.872142+00:00 app[web.1]:     at startup (node.js:117:18)
+2015-10-01T16:18:09.872144+00:00 app[web.1]:     at node.js:951:3
+2015-10-01T16:18:10.701599+00:00 heroku[web.1]: State changed from starting to crashed
+2015-10-01T16:18:10.690617+00:00 heroku[web.1]: Process exited with status 1
+2015-10-01T21:29:47.624240+00:00 heroku[slug-compiler]: Slug compilation started
+2015-10-01T21:29:47.624260+00:00 heroku[slug-compiler]: Slug compilation failed: failed to compile Node.js app
+2015-10-01T21:42:58.149984+00:00 heroku[api]: Deploy 7d714c0 by jeff.w.harrison86@gmail.com
+2015-10-01T21:42:58.149984+00:00 heroku[api]: Release v7 created by jeff.w.harrison86@gmail.com
+2015-10-01T21:42:58.225987+00:00 heroku[slug-compiler]: Slug compilation started
+2015-10-01T21:42:58.226005+00:00 heroku[slug-compiler]: Slug compilation finished
+2015-10-01T21:42:58.364092+00:00 heroku[web.1]: State changed from crashed to starting
+2015-10-01T21:43:01.246316+00:00 heroku[web.1]: Starting process with command `npm start`
+2015-10-01T21:43:05.715865+00:00 app[web.1]: npm ERR! Linux 3.13.0-61-generic
+2015-10-01T21:43:05.723946+00:00 app[web.1]: npm ERR! node v4.1.1
+2015-10-01T21:43:05.742593+00:00 app[web.1]: 
+2015-10-01T21:43:05.742600+00:00 app[web.1]: npm ERR! 
+2015-10-01T21:43:05.742599+00:00 app[web.1]: npm ERR! missing script: start
+2015-10-01T21:43:05.742601+00:00 app[web.1]: npm ERR! If you need help, you may report this error at:
+2015-10-01T21:43:05.742603+00:00 app[web.1]: npm ERR!     <https://github.com/npm/npm/issues>
+2015-10-01T21:43:05.777927+00:00 app[web.1]: 
+2015-10-01T21:43:05.716503+00:00 app[web.1]: npm ERR! argv "/app/.heroku/node/bin/node" "/app/.heroku/node/bin/npm" "start"
+2015-10-01T21:43:05.778350+00:00 app[web.1]: npm ERR!     /app/npm-debug.log
+2015-10-01T21:43:05.778222+00:00 app[web.1]: npm ERR! Please include the following file with any support request:
+2015-10-01T21:43:05.735838+00:00 app[web.1]: npm ERR! npm  v2.14.4
+2015-10-01T21:43:06.877054+00:00 heroku[web.1]: State changed from starting to crashed
+2015-10-01T21:43:06.878365+00:00 heroku[web.1]: State changed from crashed to starting
+2015-10-01T21:43:06.868668+00:00 heroku[web.1]: Process exited with status 1
+2015-10-01T21:43:08.936366+00:00 heroku[web.1]: Starting process with command `npm start`
+2015-10-01T21:43:11.360697+00:00 app[web.1]: npm ERR! argv "/app/.heroku/node/bin/node" "/app/.heroku/node/bin/npm" "start"
+2015-10-01T21:43:11.366926+00:00 app[web.1]: npm ERR! npm  v2.14.4
+2015-10-01T21:43:11.372334+00:00 app[web.1]: npm ERR! missing script: start
+2015-10-01T21:43:11.377591+00:00 app[web.1]: npm ERR! If you need help, you may report this error at:
+2015-10-01T21:43:11.404945+00:00 app[web.1]: 
+2015-10-01T21:43:11.362686+00:00 app[web.1]: npm ERR! node v4.1.1
+2015-10-01T21:43:11.405513+00:00 app[web.1]: npm ERR!     /app/npm-debug.log
+2015-10-01T21:43:11.356716+00:00 app[web.1]: npm ERR! Linux 3.13.0-61-generic
+2015-10-01T21:43:11.375304+00:00 app[web.1]: npm ERR! 
+2015-10-01T21:43:11.368524+00:00 app[web.1]: 
+2015-10-01T21:43:11.405296+00:00 app[web.1]: npm ERR! Please include the following file with any support request:
+2015-10-01T21:43:11.381262+00:00 app[web.1]: npm ERR!     <https://github.com/npm/npm/issues>
+2015-10-01T21:43:12.429038+00:00 heroku[web.1]: Process exited with status 1
+2015-10-01T21:43:12.448932+00:00 heroku[web.1]: State changed from starting to crashed
+2015-10-01T21:45:57.237518+00:00 heroku[slug-compiler]: Slug compilation started
+2015-10-01T21:45:57.237534+00:00 heroku[slug-compiler]: Slug compilation finished
+2015-10-01T21:45:57.164979+00:00 heroku[api]: Deploy 1be5e37 by jeff.w.harrison86@gmail.com
+2015-10-01T21:45:57.164979+00:00 heroku[api]: Release v8 created by jeff.w.harrison86@gmail.com
+2015-10-01T21:45:57.443394+00:00 heroku[web.1]: State changed from crashed to starting
+2015-10-01T21:45:59.883647+00:00 heroku[web.1]: Starting process with command `npm start`
+2015-10-01T21:46:02.481704+00:00 app[web.1]: npm ERR! argv "/app/.heroku/node/bin/node" "/app/.heroku/node/bin/npm" "start"
+2015-10-01T21:46:02.483697+00:00 app[web.1]: npm ERR!     <https://github.com/npm/npm/issues>
+2015-10-01T21:46:02.489424+00:00 app[web.1]: npm ERR! Please include the following file with any support request:
+2015-10-01T21:46:02.489623+00:00 app[web.1]: npm ERR!     /app/npm-debug.log
+2015-10-01T21:46:02.489137+00:00 app[web.1]: 
+2015-10-01T21:46:02.482530+00:00 app[web.1]: npm ERR! npm  v2.11.3
+2015-10-01T21:46:02.483277+00:00 app[web.1]: npm ERR! missing script: start
+2015-10-01T21:46:02.483568+00:00 app[web.1]: npm ERR! If you need help, you may report this error at:
+2015-10-01T21:46:02.483441+00:00 app[web.1]: npm ERR! 
+2015-10-01T21:46:02.482044+00:00 app[web.1]: npm ERR! node v0.12.7
+2015-10-01T21:46:02.481094+00:00 app[web.1]: npm ERR! Linux 3.13.0-61-generic
+2015-10-01T21:46:02.482915+00:00 app[web.1]: 
+2015-10-01T21:46:03.386091+00:00 heroku[web.1]: State changed from starting to crashed
+2015-10-01T21:46:03.373565+00:00 heroku[web.1]: Process exited with status 1
+2015-10-01T21:46:15.332467+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=stark-gorge-4936.herokuapp.com request_id=f4fd480c-0335-408e-9c7b-4dd1b2505255 fwd="192.69.243.2" dyno= connect= service= status=503 bytes=
+2015-10-01T21:46:15.978762+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=stark-gorge-4936.herokuapp.com request_id=54e9c2ed-fc1c-4df9-adc0-2ab4b384570c fwd="192.69.243.2" dyno= connect= service= status=503 bytes=
+2015-10-01T21:46:21.727672+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=stark-gorge-4936.herokuapp.com request_id=a632c663-97af-43a9-9714-3feabec6a0b6 fwd="192.69.243.2" dyno= connect= service= status=503 bytes=
+2015-10-01T21:46:22.209397+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=stark-gorge-4936.herokuapp.com request_id=50fb95a5-cdfc-41a6-8641-2b28ba065111 fwd="192.69.243.2" dyno= connect= service= status=503 bytes=
