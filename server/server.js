@@ -83,27 +83,6 @@ app.post('/api/trip', function (req, res) {
   var tripName = req.body.name;
   db.model('Trip').newTrip({name: tripName}).save();
 
-  var instaResults = []
-  var feed = new Instafeed({
-    get: 'user',
-    userId: req.user.id,
-    accessToken: '22125417.d904cd4.44abd06ef59d43e5b0fc7e9b4f347ebb',
-    filter: function(image) {
-      if(image.tags.indexOf(tripName) >= 0){
-        instaResults.push(image);
-        console.log(instaResults);
-        return true;
-      }
-    },
-    links: true,
-    limit: 34,
-    target: 'instafeed',
-    sortBy: 'most-recent',
-    resolution: 'standard_resolution',
-    useHttp: true,
-  });
-
-  feed.run();
   instaResults.forEach(function (photo) {
     db.model('Photo').newPhoto({
       url: photo.images.standard_resolution.url,
