@@ -34,6 +34,7 @@ module.exports = function (passport) {
             instagram_id: profile.id
           }).save();
         } else {
+          console.log('Did we find something?', user);
         // if user exists in our database
           return user;
         }
