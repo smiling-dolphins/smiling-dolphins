@@ -9,6 +9,10 @@ require('../db/models/user');
 require("../db/models/trip");
 require("../db/models/photo");
 
+require('../db/collections/users');
+require("../db/collections/trips");
+require("../db/collections/photos");
+
 var app = express();
 var server = http.Server(app);
 
@@ -19,7 +23,11 @@ require("./passport.js")(passport)
 
 //Required for Passport
 var session = require("express-session");
-app.use(session({ secret: 'Frowning Dolphins' }));
+app.use(session({ 
+  secret: 'Frowning Dolphins',
+  resave: false,
+  saveUninitialized: true
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -43,9 +51,16 @@ app.get('/api/trip/:id', function(req, res){
   db.model('Trip').fetchById(tripId).then(function(trip){
     console.log(trip);
   })
+
+app.get('/api/trips', function (req, res, next){
+  db.collection('Trips')
+  .fetchAll()
+  .then( function(data) {
+    res.json({ data: data.toJSON() }); // need to strip insta ID
+  });
 });
 
-app.post('/api/trip', function (req, res) {
+app.post('/api/trips', function (req, res) {
   console.log('req:', req.body);
 
   var tripName = req.body.name;

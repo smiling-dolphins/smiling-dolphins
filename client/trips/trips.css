@@ -34,3 +34,18 @@
   list-style-type: none;
   padding: 0px;
 }
+
+.add-btn {
+  padding: 10px;
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+.add-btn:hover {
+  background-color: rgba(0,0,0,0.2);
+  color: white;
+}
+.add-btn:focus {
+  color: white;
+}

@@ -1,4 +1,4 @@
-<div class="navbar" ng-init="headerCtrl.randomBackground()" style="background: url({{headerCtrl.bgnd}}) no-repeat center">
+<div class="navbar" ng-init="headerCtrl.randomBackground()" style="background: url({{headerCtrl.bgnd}}) no-repeat center; background-size: cover;">
   <div class="wrapper">
     <div class="nav welcome">
       <p>Welcome, {{username}}!</p>
@@ -9,11 +9,10 @@
     </div>
     <div class="nav btns">
       <div class="nav">
-        <button class="btn">login</button>
-        <button class="btn">signup</button>
+        <a class="btn" href="api/auth">login with Instagram</a>
       </div>
       <div class="nav">
-        <button class="btn">logout</button>
+        <a class="btn">logout</a>
       </div>
     </div> 
   </div>

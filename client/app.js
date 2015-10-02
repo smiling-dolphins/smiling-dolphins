@@ -1,27 +1,19 @@
 angular.module('venshurApp', [
-  'ui.router',
+  'ngRoute',
   'venshurServices',
   'Header',
   'Trips',
-  'Map'
-]).
-config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise("/index");
+  'Map',
+  'PhotoView'
+])
+.run()
+.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
 
-  $stateProvider
-    .state('index', {
-      url: "/index",
+  $routeProvider
+    .when('/', {
       templateUrl: "index.html"
+    })
+    .otherwise({
+      redirectTo: '/'
     });
-    // .state('header', {
-    //   url: "/header",
-    //   templateUrl: "header/header.html"
-    // });
-    // .state('state2.list', {
-    //   url: "/list",
-    //   templateUrl: "partials/state2.list.html",
-    //   controller: function($scope) {
-    //     $scope.things = ["A", "Set", "Of", "Things"];
-    //   }
-    // });
 }]);

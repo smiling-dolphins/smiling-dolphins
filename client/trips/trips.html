@@ -1,4 +1,4 @@
-<div class="side-bar">
+<div class="side-bar" ng-init="tripsCtrl.getTrips()">
   <input type="text" ng-model="search" placeholder="search...">
   <hr/>
   <div class="trip-list">
@@ -10,5 +10,5 @@
     </ul>
   </div>
   <br/>
-  <button class="btn" ng-click="tripsCtrl.addTrip()">add your trip!</button>
+  <button class="add-btn" ng-click="tripsCtrl.addTrip()">add your trip!</button>
 </div>
