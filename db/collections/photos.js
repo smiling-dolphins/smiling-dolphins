@@ -8,7 +8,7 @@ require('../models/photo');
 // db.Collection.extend
 var Photos = db.Collection.extend({
   model: db.model('Photo')
-  }, {
+}, {
   // Photos collection methods:
   fetchByUser: function(userId){
     return db.collection('Photos')

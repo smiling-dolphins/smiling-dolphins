@@ -19,7 +19,6 @@ var pics = [
   "http://www.gg-group.net/template/en/definitions/img/header-travel.jpg",
   "http://dsphotographic.com/blog/wp-content/uploads/midlands-30.jpg",
   "http://cdnx.jetcdn.com/static/dimg/rlWgMKEuMTS0LFV6rlWmnKcyVwc7VaqcMUEbVwbkZwNjYPWbMJyanUDvBwLjZU19YPWjLKEbVwbvnJ1uM2ImY3Olo2E1L3DipUWipTIlqTyypl9yMTy0o3WcLJklMKMcMKqmYmx0AwHipTquoP0lBGD5Zv0kZmN4ZQt3AQH3YKAlLl5dpTpvYPW2MKWmnJ9hVwbvVa0",
-  "http://dsphotographic.com/blog/wp-content/uploads/india-01.jpg",
   "http://www.99adventure.com/wp-content/uploads/2015/06/99asventure-molveno-panorama-1200x600.jpg",
   "http://www.lawsonphoto.us/wp-content/uploads/2011/07/smalljokulsarlon_Panorama1_print.jpg",
   "http://www.slotrips.si/sis-mapa/skupina_doc/slo/galerija/1332185422_3367_panorama5.jpg",
