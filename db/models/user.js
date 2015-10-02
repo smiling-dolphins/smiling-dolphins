@@ -16,10 +16,8 @@ var User = db.Model.extend({
   }
 },{
   //Model methods
-  fetchById: function(id) {
-    return new this({
-      id: id
-    }).fetch({withRelated:['trips', 'photos']});
+  fetchById: function(options) {
+    return new this(options).fetch();
   },
 
   fetchByInstagramId: function(instagram_id) {

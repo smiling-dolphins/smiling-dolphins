@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var http = require('http');
 var Promise = require('bluebird');
 var passport = require("passport");
+var morgan = require('morgan');
 
 require('../db/models/user');
 require("../db/models/trip");
@@ -16,33 +17,54 @@ require("../db/collections/photos");
 var app = express();
 var server = http.Server(app);
 
+app.use(morgan('dev'));
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-require("./passport.js")(passport)
-
 //Required for Passport
 var session = require("express-session");
-app.use(session({ 
+app.use(session({
+  key: 'our project',
   secret: 'Frowning Dolphins',
   resave: false,
   saveUninitialized: true
 }));
+
+app.use(express.static(__dirname + '/../client'));
+
+require("./passport.js")(passport)
+
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.static(__dirname + '/../client'));
+// app.get('/', function (req,res) {
+//   res.render('index');
+// })
+
+app.get('/api/auth', function (req, res){
+  if(req.user){
+    res.json(req.user.toJSON());
+  }
+});
 
 //Direct to Instagram Login
 app.get('/auth/instagram',
   passport.authenticate('instagram'));
 
 //Redirect Back to Home Page upon Authentication
-app.get('/auth/instagram/callback',
-  passport.authenticate('instagram', { failureRedirect: '/login' }),
-  function(req, res) {
-    res.redirect('/');
-  });
+app.get('/auth/instagram/callback', function (req, res, next) {
+  passport.authenticate('instagram',
+  function(err, user, info) {
+      if (err) { return next(err); }
+      req.logIn(user, function(err) {
+        if (err) { return next(err); }
+        console.log('Has the req been logged in??', req.user);
+        res.redirect( '/' );
+      });
+    })(req, res, next);
+  //   res.json({name: 'jeff'});
+});
 
 // app.param()
 app.get('/api/trip/:id', function(req, res){
@@ -50,7 +72,9 @@ app.get('/api/trip/:id', function(req, res){
   console.log("this is the id: ", tripId);
   db.model('Trip').fetchById(tripId).then(function(trip){
     console.log(trip);
-  })
+    res.json(trip.toJSON());
+  });
+});
 
 app.get('/api/trips', function (req, res, next){
   db.collection('Trips')
@@ -60,35 +84,25 @@ app.get('/api/trips', function (req, res, next){
   });
 });
 
-app.post('/api/trips', function (req, res) {
+app.post('/api/trip', function (req, res) {
   console.log('req:', req.body);
 
   var tripName = req.body.name;
   db.model('Trip').newTrip({name: tripName}).save();
 
-  var instaResults = []
-  var feed = new Instafeed({
-    get: 'user',
-    userId: 273734145,
-    accessToken: '22125417.d904cd4.44abd06ef59d43e5b0fc7e9b4f347ebb',
-    filter: function(image) {
-      if(image.tags.indexOf(tripName) >= 0){
-        instaResults.push(image);
-        console.log(instaResults);
-        return true;
-      }
-    },
-    links: true,
-    limit: 34,
-    target: 'instafeed',
-    sortBy: 'most-recent',
-    resolution: 'standard_resolution',
-    useHttp: true,
+  instaResults.forEach(function (photo) {
+    db.model('Photo').newPhoto({
+      url: photo.images.standard_resolution.url,
+      thumb_url: photo.thumbnail.url,
+      lat: photo.location.latitude,
+      lng: photo.location.longitude,
+      trip_id: 'id',
+      user_id: req.user.attributes.id,
+    }).save().then(function (photo) {
+      console.log('ADDED PHOTO ',photo.toJSON());
+    })
+    })
   });
-
-  feed.run();
-
-});
 
 app.listen(process.env.PORT || 8000);
 console.log("Listening on port 8000...")
