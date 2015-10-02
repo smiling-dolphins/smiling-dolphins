@@ -4,8 +4,11 @@ angular.module('venshurApp', [
   'Header',
   'Trips',
   'Map'
-]).
-config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+])
+.run(function(){
+  console.log('************ Angular Running  ******************');
+})
+.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/index");
 
   $stateProvider
