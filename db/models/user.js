@@ -15,19 +15,17 @@ var User = db.Model.extend({
   }
 },{
   //Model methods
-  fetchById: function(id) {
-    return new this({
-      id: id
-    }).fetch({withRelated:['trips', 'photos']});
+  fetchById: function(options) {
+    return new this(options).fetch({withRelated:['trips', 'photos']});
   },
   fetchByUsername: function(username) {
     return new this({
-      username: username 
+      username: username
     }).fetch({withRelated:['trips', 'photos']});
   },
   newUser: function(options) {
     return new this(options);
-  }   
+  }
 });
 
 module.exports = db.model('User', User);
