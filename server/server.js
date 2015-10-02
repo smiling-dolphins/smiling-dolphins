@@ -27,12 +27,12 @@ app.use(session({
   saveUninitialized: true
 }));
 
+app.use(express.static(__dirname + '/../client'));
+
 require("./passport.js")(passport)
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.use(express.static(__dirname + '/../client'));
 
 // app.get('/', function (req,res) {
 //   res.render('index');
@@ -43,12 +43,13 @@ app.get('/auth/instagram',
 
 //Redirect Back to Home Page upon Authentication
 app.get('/auth/instagram/callback', function (req, res, next) {
-  passport.authenticate('instagram', function(err, user, info) {
+  passport.authenticate('instagram',
+  function(err, user, info) {
       if (err) { return next(err); }
       req.logIn(user, function(err) {
         if (err) { return next(err); }
         console.log('Has the req been logged in??', req.user);
-        res.redirect( 'http://localhost:8000' );
+        res.redirect( '/index.html' );
       });
     })(req, res, next);
   //   res.json({name: 'jeff'});
@@ -82,27 +83,19 @@ app.post('/api/trip', function (req, res) {
   var tripName = req.body.name;
   db.model('Trip').newTrip({name: tripName}).save();
 
-  var instaResults = []
-  var feed = new Instafeed({
-    get: 'user',
-    userId: 273734145,
-    accessToken: '22125417.d904cd4.44abd06ef59d43e5b0fc7e9b4f347ebb',
-    filter: function(image) {
-      if(image.tags.indexOf(tripName) >= 0){
-        instaResults.push(image);
-        console.log(instaResults);
-        return true;
-      }
-    },
-    links: true,
-    limit: 34,
-    target: 'instafeed',
-    sortBy: 'most-recent',
-    resolution: 'standard_resolution',
-    useHttp: true,
+  instaResults.forEach(function (photo) {
+    db.model('Photo').newPhoto({
+      url: photo.images.standard_resolution.url,
+      thumb_url: photo.thumbnail.url,
+      lat: photo.location.latitude,
+      lng: photo.location.longitude,
+      trip_id: 'id',
+      user_id: req.user.attributes.id,
+    }).save().then(function (photo) {
+      console.log('ADDED PHOTO ',photo.toJSON());
+    })
+    })
   });
-
-  feed.run();
 
 
   // create a new trip & send Instafeed post request for user
@@ -112,7 +105,6 @@ app.post('/api/trip', function (req, res) {
 
 
 
-});
 
 app.listen(process.env.PORT || 8000);
 console.log("Listening on port 8000...")
