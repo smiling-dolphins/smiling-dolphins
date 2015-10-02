@@ -88,14 +88,6 @@ app.post('/api/trips', function (req, res) {
 
   feed.run();
 
-
-  // create a new trip & send Instafeed post request for user
-  // filter for newTrip tag we just created
-  // add photos to the db with associated trip Id
-
-
-
-
 });
 
 app.listen(process.env.PORT || 8000);
