@@ -1,0 +1,43 @@
+h1 {
+  font-size: 3em;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+.slanted {
+  font-size: 1.25em;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.navbar {
+  /*background: url("http://lorempixel.com/1200/600/nightlife") no-repeat center;*/
+  background-size: cover;
+  height: 175px;
+  margin: 0 auto 10px;
+}
+
+.wrapper {
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+}
+
+.nav {
+  margin-top: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  color: white;
+}
+
+.welcome {
+  width: 24%;
+}
+
+.logo {
+  width: 50%;
+}
+
+.btns {
+  width: 24%;
+}

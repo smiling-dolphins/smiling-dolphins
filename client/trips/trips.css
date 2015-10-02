@@ -1,0 +1,51 @@
+.side-bar {
+  width: 200px;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  /*border: 1px solid green;*/
+  text-align: left;
+}
+
+.trip-list {
+  height: 300px;
+}
+
+.bold {
+  font-size: 1em;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+.gray {
+  font-size: 1.1em;
+  color: gray;
+}
+
+.gray:hover {
+  cursor: pointer;
+  color: steelblue;
+}
+
+.gray:active {
+  color: steelblue;
+}
+
+.vertical-list {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.add-btn {
+  padding: 10px;
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+.add-btn:hover {
+  background-color: rgba(0,0,0,0.2);
+  color: white;
+}
+.add-btn:focus {
+  color: white;
+}

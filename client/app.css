@@ -1,0 +1,28 @@
+body {
+  background: url("https://www.walldevil.com/wallpapers/w04/120242-android-jelly-bean-google-nexus-minimalistic-shimmer-textures-triangles-white.jpg") no-repeat top;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+.container {
+  width: 95%;
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.btn {
+  background-color: rgba(255,255,255,0.4);
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+.btn:hover {
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+}
+.btn:focus {
+  color: white;
+}
