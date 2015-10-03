@@ -1,6 +1,6 @@
 angular.module('venshurServices', [])
   .factory('Fetcher', Fetcher)
-  .factory('Auth', ['$rootScope', '$q', '$http', '$location', Auth]);
+  .factory('Auth', ['$window', '$rootScope', '$q', '$http', '$location', Auth]);
 
 var trips = [];
 var currentTrip = {};
@@ -20,7 +20,7 @@ function Fetcher ($http) {
       url: '/api/trips'
     })
     .then(function (response) {
-      console.log('response from getTrips Fetcher: ', response);
+      // console.log('response from getTrips Fetcher: ', response);
       response.data.data.forEach(function(item, index){
         trips[index] = item;
       });
@@ -49,27 +49,47 @@ function Fetcher ($http) {
   }
 }
 
-function Auth ($rootScope, $q, $http, $location){
+function Auth ($window, $rootScope, $q, $http){
   function getAuth(){
-    var userProfile = $rootScope.user.getItem('userProfile');
+    var userProfile = $window.localStorage.getItem('userProfile');
+    if (!userProfile) {
+      userProfile = { authenticated: false };
+      $window.localStorage.setItem('userProfile', userProfile);
+    }
+    $window.localStorage.userProfile.authenticated = userProfile.authenticated;
+    return userProfile.authenticated;
   }
+
   function checkAuth(){
-    return $http({method: 'GET', url: '/api/auth'})
+    return $http({
+      method: 'GET', 
+      url: '/api/auth'
+    })
     .then(function(response){
-      console.log('success response: ', response);
-      // var userProfile = $rootScope.user.getItem('userProfile') || {};
-      // response.data.forEach(function(val, key){
-      //   userProfile[key] = val;
-      // });
-      // $rootScope.user.setItem('userProfile', userProfile);
-      // $rootScope.user.authenticated = userProfile.authenticated;
+      var userProfile = JSON.parse($window.localStorage.getItem('userProfile')) || {};
+      for(var key in response.data){
+        userProfile[key] = response.data[key];
+        userProfile.authenticated = true;
+      };
+      $window.localStorage.setItem('userProfile', JSON.stringify(userProfile));
     }, function(response){
       console.log('error response: ', response.status, response.data);
     });
   }
 
+  function logout(){
+    return $http({
+      method: 'GET',
+      url: '/api/logout'
+    })
+    .then(function(response){
+      $window.localStorage.removeItem('userProfile');
+    });
+  }
+
   return {
     getAuth: getAuth,
-    checkAuth: checkAuth
+    checkAuth: checkAuth,
+    logout: logout
   }
 }

@@ -38,10 +38,6 @@ require("./passport.js")(passport)
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.get('/', function (req,res) {
-//   res.render('index');
-// })
-
 app.get('/api/auth', function (req, res){
   if(req.user){
     res.json(req.user.toJSON());
@@ -66,6 +62,11 @@ app.get('/auth/instagram/callback', function (req, res, next) {
   //   res.json({name: 'jeff'});
 });
 
+app.get('/api/logout', function(req, res){
+  req.session.destroy();
+  req.logout();
+  res.send('200');
+});
 // app.param()
 app.get('/api/trip/:id', function(req, res){
   var tripId = req.params.id;
@@ -84,7 +85,7 @@ app.get('/api/trips', function (req, res, next){
   });
 });
 
-app.post('/api/trip', function (req, res) {
+app.post('/api/trips', function (req, res) {
   console.log('req:', req.body);
 
   var tripName = req.body.name;
