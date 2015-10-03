@@ -1,16 +1,17 @@
 angular.module('venshurServices', [])
   .factory('Fetcher', Fetcher)
-  .factory('Auth', ['$window', '$rootScope', '$q', '$http', '$location', Auth]);
+  .factory('Auth', ['$window', '$rootScope', '$q', '$http', Auth])
+  .factory('mapService', mapservice);
 
+function Fetcher ($http,mapService) {
 var trips = [];
 var currentTrip = {};
-
-function Fetcher ($http) {
 
   var setCurrentTrip = function(trip){
     for(var key in trip){
       currentTrip[key] = trip[key];
     }
+    mapService.trip = currentTrip;
     return currentTrip;
   }
 
@@ -58,7 +59,6 @@ function Auth ($window, $rootScope, $q, $http){
     }
     $window.localStorage.userProfile.authenticated = userProfile.authenticated;
     return userProfile.authenticated;
-  }
 
   function checkAuth(){
     return $http({
@@ -92,4 +92,14 @@ function Auth ($window, $rootScope, $q, $http){
     checkAuth: checkAuth,
     logout: logout
   }
+}
+
+function mapservice(){
+  var mark,modalInstance,trip;
+
+  return {
+    trip:trip,
+    mark:mark,
+    modalInstance:modalInstance,
+  };
 }
