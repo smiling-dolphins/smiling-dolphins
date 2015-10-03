@@ -10,6 +10,10 @@ require('../db/models/user');
 require("../db/models/trip");
 require("../db/models/photo");
 
+require('../db/collections/users');
+require("../db/collections/trips");
+require("../db/collections/photos");
+
 var app = express();
 var server = http.Server(app);
 
@@ -34,9 +38,12 @@ require("./passport.js")(passport)
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.get('/', function (req,res) {
-//   res.render('index');
-// })
+app.get('/api/auth', function (req, res){
+  if(req.user){
+    res.json(req.user.toJSON());
+  }
+});
+
 //Direct to Instagram Login
 app.get('/auth/instagram',
   passport.authenticate('instagram'));
@@ -49,24 +56,17 @@ app.get('/auth/instagram/callback', function (req, res, next) {
       req.logIn(user, function(err) {
         if (err) { return next(err); }
         console.log('Has the req been logged in??', req.user);
-        res.redirect( '/index.html' );
+        res.redirect( '/' );
       });
     })(req, res, next);
   //   res.json({name: 'jeff'});
 });
 
-// db.model('Photo').newPhoto({
-//   url: 'https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/s640x640/sh0.08/e35/11950735_1642937995984028_1074498518_n.jpg',
-//   thumb_url: 'https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/s150x150/e35/c0.135.1080.1080/11875317_118274165193414_119190204_n.jpg',
-//   lat: 34.019007538736766,
-//   lng: -118.4945547580719,
-//   trip_id: 1234,
-//   user_id: 1543
-// }).save().then(function (photo) {
-//   console.log('ADDED PHOTO ',photo.toJSON());
-// })
-
-
+app.get('/api/logout', function(req, res){
+  req.session.destroy();
+  req.logout();
+  res.send('200');
+});
 // app.param()
 app.get('/api/trip/:id', function(req, res){
   var tripId = req.params.id;
@@ -77,7 +77,15 @@ app.get('/api/trip/:id', function(req, res){
   });
 });
 
-app.post('/api/trip', function (req, res) {
+app.get('/api/trips', function (req, res, next){
+  db.collection('Trips')
+  .fetchAll()
+  .then( function(data) {
+    res.json({ data: data.toJSON() }); // need to strip insta ID
+  });
+});
+
+app.post('/api/trips', function (req, res) {
   console.log('req:', req.body);
 
   var tripName = req.body.name;
@@ -96,15 +104,6 @@ app.post('/api/trip', function (req, res) {
     })
     })
   });
-
-
-  // create a new trip & send Instafeed post request for user
-  // filter for newTrip tag we just created
-  // add photos to the db with associated trip Id
-
-
-
-
 
 app.listen(process.env.PORT || 8000);
 console.log("Listening on port 8000...")

@@ -7,6 +7,7 @@ require('./photo');
 var Trip = db.Model.extend({
   // Trip properties
   tableName: 'trips',
+  hasTimestamp: true,
   user: function() {
     return this.belongsTo('User');
   },

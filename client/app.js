@@ -1,30 +1,25 @@
 angular.module('venshurApp', [
-  'ui.router',
+  'ngRoute',
   'venshurServices',
   'Header',
   'Trips',
-  'Map'
+  'Map',
+  'PhotoView'
 ])
-.run(function(){
-  console.log('************ Angular Running  ******************');
-})
-.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise("/index");
+.run(['Auth', function(Auth){
+  Auth.checkAuth();
+}])
+.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
 
-  $stateProvider
-    .state('index', {
-      url: "/index",
+  $routeProvider
+    .when('/', {
       templateUrl: "index.html"
+    })
+    .when('/auth/instagram', {
+      templateUrl: "index.html",
+      redirect: false
+    })
+    .otherwise({
+      redirectTo: '/'
     });
-    // .state('header', {
-    //   url: "/header",
-    //   templateUrl: "header/header.html"
-    // });
-    // .state('state2.list', {
-    //   url: "/list",
-    //   templateUrl: "partials/state2.list.html",
-    //   controller: function($scope) {
-    //     $scope.things = ["A", "Set", "Of", "Things"];
-    //   }
-    // });
 }]);

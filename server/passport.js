@@ -9,14 +9,17 @@ module.exports = function (passport) {
     done(null, user ? user.get('instagram_id') : false);
   });
 
-      // used to deserialize the user
+  // used to deserialize the user
   passport.deserializeUser(function(id, done) {
     db.model('User').fetchById({ instagram_id: id })
     .then(function(user) {
       done(err, user);
+    })
+    .catch(function(err){
+      done(err, false);
     });
   });
-//Define Instagram Strategy
+  //Define Instagram Strategy
   passport.use(new InstagramStrategy({
     clientID: Auth.clientId,
     clientSecret: Auth.clientSecret,
@@ -24,8 +27,8 @@ module.exports = function (passport) {
     enabledProof: false,
     callbackURL: "http://127.0.0.1:8000/auth/instagram/callback"
   },
-//____________________________________________________________________________
-//If User isn't stored in our database, create a new user and store the Instagram ID in our database
+  //____________________________________________________________________________
+  //If User isn't stored in our database, create a new user and store the Instagram ID in our database
 
   function(req, accessToken, refreshToken, profile, done) {
     db.model('User').fetchById({
@@ -40,7 +43,7 @@ module.exports = function (passport) {
         }).save();
       } else {
         console.log('Did we find something?', user);
-      // if user exists in our database
+        // if user exists in our database
         return user;
       }
     }).then(function(user) {
