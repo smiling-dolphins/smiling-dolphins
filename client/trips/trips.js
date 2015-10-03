@@ -11,25 +11,32 @@ angular.module('Trips', [])
     }
   });
 
-TripsController.inject = ['$http', 'Fetcher'];
+TripsController.inject = ['$http', 'Fetcher', 'Auth'];
 
-function TripsController($http, Fetcher){
+function TripsController($http, $window, Fetcher, Auth){
   var self = this;
-
+  self.hashtag;
   self.getTrips = Fetcher.getTrips;
   self.trips = Fetcher.trips || Fetcher.getTrips();
   self.currentTrip = Fetcher.currentTrip;
-
+  self.isAuth = Auth.getAuth();
   self.setTrip = function(index){
     self.currentTrip = Fetcher.setCurrentTrip(self.trips[index]);
     console.log(self.currentTrip);
   }
 
-  self.addTrip = function(tripData){
-    // send $http to POST trip
-    // .then(function(response){
-       // self.trip = response.data;
-    // })
-  alert("add button clicked!");
+  self.addTrip = function(){
+    $http({
+      method: 'POST',
+      url: 'api/trips',
+      data: {trip: {name: self.hashtag}}
+    })
+    .then(function(response){
+       self.getTrips();
+       self.setTrip(response.data);
+    })
+    .catch(function(err){
+      console.error(err);
+    });
   }
 }

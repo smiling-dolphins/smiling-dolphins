@@ -29,12 +29,13 @@ var pics = [
   "http://filer.livinginperu.com/travel/Pelicans.jpg"
 ];
 
-HeaderController.inject = ['$http', 'Fetcher'];
-function HeaderController($http, Fetcher){
+HeaderController.inject = ['$http', 'Fetcher', 'Auth'];
+function HeaderController($http, Fetcher, Auth){
   var self = this;
   self.bgnd;
   self.randomBackground = function(){
     var index = Math.floor(Math.random()*pics.length);
     self.bgnd = pics[index];
   };
+  self.logout = Auth.logout;
 }

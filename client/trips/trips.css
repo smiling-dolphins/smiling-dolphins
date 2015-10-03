@@ -8,7 +8,7 @@
 }
 
 .trip-list {
-  height: 300px;
+  height: 250px;
 }
 
 .bold {
@@ -35,7 +35,12 @@
   padding: 0px;
 }
 
+.add-form {
+
+}
+
 .add-btn {
+  margin: 10px 22px;
   padding: 10px;
   background-color: rgba(0,0,0,0.4);
   color: white;
