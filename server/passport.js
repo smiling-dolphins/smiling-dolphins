@@ -13,11 +13,11 @@ module.exports = function (passport) {
   passport.deserializeUser(function(id, done) {
     db.model('User').fetchById({ instagram_id: id })
     .then(function(user) {
-      return done(null, user);
+      done(err, user);
     })
     .catch(function(err){
-      return done(err, false);
-    })
+      done(err, false);
+    });
   });
   //Define Instagram Strategy
   passport.use(new InstagramStrategy({

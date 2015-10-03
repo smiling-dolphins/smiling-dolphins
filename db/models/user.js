@@ -33,7 +33,7 @@ var User = db.Model.extend({
   },
   newUser: function(options) {
     return new this(options);
-  }   
+  }
 });
 
 module.exports = db.model('User', User);
