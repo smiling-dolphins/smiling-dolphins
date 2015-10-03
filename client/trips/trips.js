@@ -12,9 +12,9 @@ angular.module('Trips', [])
     }
   });
   
-TripsController.inject = ['$http', 'Fetcher',$scope];
+TripsController.inject = ['$http', 'Fetcher','$scope','Auth'];
 
-function TripsController($http, Fetcher,$scope){
+function TripsController($http, Fetcher,$scope,Auth){
   var self = this;
   self.hashtag;
   self.getTrips = Fetcher.getTrips;

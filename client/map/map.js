@@ -26,7 +26,7 @@ function mapDir($modal,$log,mapService){
         latitude = latitude && parseFloat(latitude, 10) || 43.074688;
         longitude = longitude && parseFloat(longitude, 10) || -89.384294;
         mapOptions = {
-          zoom: 8,
+          zoom: 2,
           center: new google.maps.LatLng(latitude, longitude)
         };
         map = new google.maps.Map(elem[0], mapOptions);

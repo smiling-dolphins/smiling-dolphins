@@ -59,6 +59,7 @@ function Auth ($window, $rootScope, $q, $http){
     }
     $window.localStorage.userProfile.authenticated = userProfile.authenticated;
     return userProfile.authenticated;
+    }
 
   function checkAuth(){
     return $http({
@@ -92,6 +93,7 @@ function Auth ($window, $rootScope, $q, $http){
     checkAuth: checkAuth,
     logout: logout
   }
+
 }
 
 function mapservice(){
