@@ -38,6 +38,10 @@ require("./passport.js")(passport)
 app.use(passport.initialize());
 app.use(passport.session());
 
+// app.get('/', function (req,res) {
+//   res.render('index');
+// })
+
 app.get('/api/auth', function (req, res){
   if(req.user){
     res.json(req.user.toJSON());

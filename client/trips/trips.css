@@ -10,6 +10,10 @@
 .trip-list {
   height: 250px;
 }
+img {
+    width: 100%;
+    height: auto;
+}
 
 .bold {
   font-size: 1em;
