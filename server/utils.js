@@ -65,7 +65,11 @@ var instaGet = function(instagramId, tripName) {
         });
 }
 
+<<<<<<< HEAD
 var instaSave = function(req, tripId, instaResults) {
+=======
+var instaSave = function(tripId, instaResults) {
+>>>>>>> [save] integrating maps
   var photos = instaResults.map(function (photoObj) {
     // check if we already have that photo in our database
     db.model('Photo').newPhoto({

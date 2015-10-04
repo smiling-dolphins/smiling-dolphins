@@ -61,7 +61,6 @@ function Auth ($window, $rootScope, $q, $http){
     $window.localStorage.userProfile.authenticated = userProfile.authenticated;
     return userProfile.authenticated;
   }
-
   function checkAuth(){
     return $http({
       method: 'GET',
@@ -80,7 +79,6 @@ function Auth ($window, $rootScope, $q, $http){
       console.log('error response: ', response.status, response.data);
     });
   }
-
   function logout(){
     return $http({
       method: 'GET',
@@ -91,11 +89,20 @@ function Auth ($window, $rootScope, $q, $http){
       checkAuth();
     });
   }
-
   return {
     getAuth: getAuth,
     checkAuth: checkAuth,
     logout: logout
+  };
+}
+
+function mapservice(){
+  var mark,modalInstance,trip;
+
+  return {
+    trip:trip,
+    mark:mark,
+    modalInstance:modalInstance,
   };
 }
 

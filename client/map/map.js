@@ -1,6 +1,3 @@
-
-
-
 angular.module('Map',[])
   .controller('MapController', MapController)
   .directive('mapDir', mapDir);
@@ -59,8 +56,6 @@ function mapDir($modal,$log,mapService){
           map.fitBounds(bounds);
     });
 
-
-
   var animationsEnabled = true;
 
   var open = function (size) {
@@ -86,4 +81,3 @@ function mapDir($modal,$log,mapService){
   }
 };
 }
-
