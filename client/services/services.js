@@ -82,21 +82,21 @@ function Auth ($window, $rootScope, $q, $http){
   }
 
   function logout(){
-   return $http({
-     method: 'GET',
-     url: '/api/logout'
-   })
-   .then(function(response){
-     $window.localStorage.removeItem('userProfile');
-     checkAuth();
-   });
- }
+    return $http({
+      method: 'GET',
+      url: '/api/logout'
+    })
+    .then(function(response){
+      $window.localStorage.removeItem('userProfile');
+      checkAuth();
+    });
+  }
 
- return {
-   getAuth: getAuth,
-   checkAuth: checkAuth,
-   logout: logout
- }
+  return {
+    getAuth: getAuth,
+    checkAuth: checkAuth,
+    logout: logout
+  };
 }
 
 function mapservice(){

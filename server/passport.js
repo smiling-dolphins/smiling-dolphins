@@ -13,7 +13,7 @@ module.exports = function (passport) {
   passport.deserializeUser(function(id, done) {
     db.model('User').fetchById({ instagram_id: id })
     .then(function(user) {
-      done(err, user);
+      done(null, user);
     })
     .catch(function(err){
       done(err, false);
