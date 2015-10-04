@@ -5,6 +5,7 @@ var http = require('http');
 var Promise = require('bluebird');
 var passport = require("passport");
 var morgan = require('morgan');
+var utils = require('./utils');
 
 require('../db/models/user');
 require("../db/models/trip");
@@ -38,10 +39,6 @@ require("./passport.js")(passport)
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.get('/', function (req,res) {
-//   res.render('index');
-// })
-
 app.get('/api/auth', function (req, res){
   if(req.user){
     res.json(req.user.toJSON());
@@ -71,7 +68,7 @@ app.get('/api/logout', function(req, res){
   req.logout();
   res.send('200');
 });
-// app.param()
+
 app.get('/api/trip/:id', function(req, res){
   var tripId = req.params.id;
   console.log("this is the id: ", tripId);
@@ -94,23 +91,10 @@ app.post('/api/trips', function (req, res) {
     app.get('/auth/instagram',
       passport.authenticate('instagram'));
   } else {
-    var tripName = req.body.name;
-    db.model('Trip').newTrip({name: tripName}).save();
-}
-
-  // instaResults.forEach(function (photo) {
-  //   db.model('Photo').newPhoto({
-  //     url: photo.images.standard_resolution.url,
-  //     thumb_url: photo.thumbnail.url,
-  //     lat: photo.location.latitude,
-  //     lng: photo.location.longitude,
-  //     trip_id: 'id',
-  //     user_id: req.user.attributes.id,
-  //   }).save().then(function (photo) {
-  //     console.log('ADDED PHOTO ',photo.toJSON());
-  //   })
-  //   })
-  });
+    var tripName = req.body.trip.name;
+    postTrips(req, res, tripName);
+  }
+});
 
 app.listen(process.env.PORT || 8000);
 console.log("Listening on port 8000...")
