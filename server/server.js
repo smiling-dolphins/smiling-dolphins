@@ -92,7 +92,7 @@ app.post('/api/trips', function (req, res) {
       passport.authenticate('instagram'));
   } else {
     var tripName = req.body.trip.name;
-    postTrips(req, res, tripName);
+    utils.postTrips(req, res, tripName);
   }
 });
 
