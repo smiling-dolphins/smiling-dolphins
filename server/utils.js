@@ -65,7 +65,7 @@ var instaGet = function(instagramId, tripName) {
         });
 }
 
-var instaSave = function(tripId, instaResults) {
+var instaSave = function(req, tripId, instaResults) {
   var photos = instaResults.map(function (photoObj) {
     // check if we already have that photo in our database
     db.model('Photo').newPhoto({
@@ -143,7 +143,7 @@ module.exports.postTrips = function (req, res, tripName) {
   });
 
   Promise.join(tripId, instaResults, function (tripId, instaResults) {
-    instaSave(tripId, instaResults)
+    instaSave(req, tripId, instaResults)
     .then(function(photos) {
       console.log('This is photos.toJSON():', photos.toJSON());
       res.send(photos.toJSON());
