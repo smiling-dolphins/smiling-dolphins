@@ -34,8 +34,9 @@ function TripsController($http, $window, Fetcher, Auth){
       data: {trip: {name: self.hashtag}}
     })
     .then(function(response){
-       self.getTrips();
-       self.setTrip(response.data);
+      console.log(response.data);
+      self.getTrips();
+      self.setTrip(response.data);
     })
     .catch(function(err){
       console.error(err);
