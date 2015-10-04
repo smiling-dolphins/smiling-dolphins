@@ -1,16 +1,17 @@
 angular.module('venshurServices', [])
   .factory('Fetcher', Fetcher)
-  .factory('Auth', ['$window', '$rootScope', '$q', '$http', '$location', Auth]);
+  .factory('Auth', ['$window', '$rootScope', '$q', '$http', Auth])
+  .factory('mapService', mapservice);
 
+function Fetcher ($http,mapService) {
 var trips = [];
 var currentTrip = {};
-
-function Fetcher ($http) {
 
   var setCurrentTrip = function(trip){
     for(var key in trip){
       currentTrip[key] = trip[key];
     }
+    mapService.trip = currentTrip;
     return currentTrip;
   }
 
@@ -54,7 +55,8 @@ function Auth ($window, $rootScope, $q, $http){
     var userProfile = $window.localStorage.getItem('userProfile');
     if (!userProfile) {
       userProfile = { authenticated: false };
-      $window.localStorage.setItem('userProfile', userProfile);
+      var toStore = JSON.stringify(userProfile)
+      $window.localStorage.setItem('userProfile', toStore);
     }
     $window.localStorage.userProfile.authenticated = userProfile.authenticated;
     return userProfile.authenticated;
@@ -62,34 +64,47 @@ function Auth ($window, $rootScope, $q, $http){
 
   function checkAuth(){
     return $http({
-      method: 'GET', 
+      method: 'GET',
       url: '/api/auth'
     })
     .then(function(response){
-      var userProfile = JSON.parse($window.localStorage.getItem('userProfile')) || {};
+      var userProfile = $window.localStorage.getItem('userProfile') || {};
+      console.log("PARSED: ", JSON.parse(userProfile));
+      var parsed = JSON.parse(userProfile);
       for(var key in response.data){
-        userProfile[key] = response.data[key];
-        userProfile.authenticated = true;
+        parsed[key] = response.data[key];
+        parsed.authenticated = true;
       };
-      $window.localStorage.setItem('userProfile', JSON.stringify(userProfile));
+      $window.localStorage.setItem('userProfile', JSON.stringify(parsed));
     }, function(response){
       console.log('error response: ', response.status, response.data);
     });
   }
 
   function logout(){
-    return $http({
-      method: 'GET',
-      url: '/api/logout'
-    })
-    .then(function(response){
-      $window.localStorage.removeItem('userProfile');
-    });
-  }
+   return $http({
+     method: 'GET',
+     url: '/api/logout'
+   })
+   .then(function(response){
+     $window.localStorage.removeItem('userProfile');
+     checkAuth();
+   });
+ }
+
+ return {
+   getAuth: getAuth,
+   checkAuth: checkAuth,
+   logout: logout
+ }
+}
+
+function mapservice(){
+  var mark,modalInstance,trip;
 
   return {
-    getAuth: getAuth,
-    checkAuth: checkAuth,
-    logout: logout
-  }
+    trip:trip,
+    mark:mark,
+    modalInstance:modalInstance,
+  };
 }

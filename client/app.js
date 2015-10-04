@@ -2,11 +2,13 @@ angular.module('venshurApp', [
   'ngRoute',
   'venshurServices',
   'Header',
-  'Trips',
   'Map',
+  'Trips',
+  'ui.bootstrap',
   'PhotoView'
 ])
-.run(['Auth', function(Auth){
+.run(['Auth','Fetcher','$http', function(Auth,Fetcher,$http){
+  Auth.getAuth();
   Auth.checkAuth();
 }])
 .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
@@ -15,7 +17,7 @@ angular.module('venshurApp', [
     .when('/', {
       templateUrl: "index.html"
     })
-    .when('/auth/instagram', {
+    .when('auth/instagram', {
       templateUrl: "index.html",
       redirect: false
     })

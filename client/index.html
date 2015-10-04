@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="venshurApp">
 <head>
+
   <meta charset="utf-8">
   <title>VENSHUR</title>
   <meta name="description" content="">
@@ -10,20 +11,74 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,600,400italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="angular-bootstrap-lightbox/angular-bootstrap-lightbox.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,600,400italic' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="app.css">
+<link href='http://fonts.googleapis.com/css?family=Lobster|Raleway:400,200' rel='stylesheet' type='text/css'>  <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="header/header.css">
   <link rel="stylesheet" href="trips/trips.css">
   <link rel="stylesheet" href="map/map.css">
   <link rel="stylesheet" href="photo/photo.css">
 </head>
 <body>
-  <header-dir></header-dir>
+  <header>
+  <div class="navbar">
+  	<ul class="navbar-container">
+      <li class="left-underline nav-button brand-logo">Venshur</li>
+  	  <li class="nav-item"><a class="left-underline nav-button" ng-click='headerCtrl.logout' href='' data-scroll>Logout</a></li>
+  	  <li class="nav-item"><a href="auth/instagram" class="left-underline nav-button" data-scroll>Login with Instagram</a></li>
+  	</ul>
+  </div>
+  </header>
+
+  <div class="parallax p1">
+      <hgroup>
+        <h1>Share Your Adventure</h1>
+        <h1>+</h1>
+        <h1>Plan Your Next</h1>
+      </hgroup>
+    </div>
   <div class="container">
     <trips-dir></trips-dir>
     <map-dir></map-dir>
   </div>
+  <div class="parallax p3">
+      <hgroup>
+        <h1>See What's Trending</h1>
 
+      </hgroup>
+    </div>
+    <footer>
+      <h1>The Team</h1>
+      <div class='wrap'>
+        <p>Chris Castillo</p>
+        <div class="linkedin icon"><a href="https://www.linkedin.com/profile/view?id=AAIAABNZfowBWjngKP2-I37hxRz9ITiRAWAV5Z0&trk=nav_responsive_tab_profile"></a></div>
+        <div class="github icon"><a href="https://github.com/ChrisC2"></a></div>
+      </div>
+      <div class='wrap'>
+        <p>Ksenia Smith</p>
+        <div class="linkedin icon"><a href="http://www.linkedin.com" target="_blank"></a></div>
+        <div class="github icon"><a href="http://www.github.com" target="_blank"></a></div>
+      </div>
+      <div class='wrap'>
+        <p>Jeff Harrison</p>
+        <div class="linkedin icon"><a href="http://www.linkedin.com" target="_blank"></a></div>
+        <div class="github icon"><a href="http://www.github.com" target="_blank"></a></div>
+      </div>
+      <div class='wrap'>
+        <p>Justin Hong</p>
+        <div class="linkedin icon"><a href="http://www.linkedin.com" target="_blank"></a></div>
+        <div class="github icon"><a href="http://www.github.com" target="_blank"></a></div>
+      </div>
+      <div class='wrap'>
+        <p>Tommy Ngai</p>
+        <div class="linkedin icon"><a href="http://www.linkedin.com" target="_blank"></a></div>
+        <div class="github icon"><a href="http://www.github.com" target="_blank"></a></div>
+      </div>
+      <div class="footer-copyright">
+        <div class="footer">
+          © Venshur
+        </div>
+      </div>
+    </footer>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=places&sensor=false"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-route.min.js"></script>
   <script src="angular-bootstrap-lightbox/ui-bootstrap-tpls-0.13.4.min.js"></script>

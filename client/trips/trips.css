@@ -1,14 +1,19 @@
 .side-bar {
   width: 200px;
-  display: inline-block;
+  display: inline;
   margin: 10px;
   padding: 10px 20px;
-  /*border: 1px solid green;*/
   text-align: left;
 }
 
 .trip-list {
   height: 250px;
+  
+
+}
+img {
+    width: 100%;
+    height: auto;
 }
 
 .bold {

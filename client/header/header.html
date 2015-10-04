@@ -1,19 +1,10 @@
-<div class="navbar" ng-init="headerCtrl.randomBackground()" style="background: url({{headerCtrl.bgnd}}) no-repeat center; background-size: cover;">
-  <div class="wrapper">
-    <div class="nav welcome">
-      <p>Welcome, {{username}}!</p>
-    </div>
-    <div class="nav logo">
-      <h1>Venshur</h1>
-      <p class="slanted">share your adventure</p>
-    </div>
-    <div class="nav btns">
-      <div class="nav">
-        <a class="btn" href="/auth/instagram">login with Instagram</a>
-      </div>
-      <div class="nav">
-        <a class="btn" ng-click="headerCtrl.logout()">logout</a>
-      </div>
-    </div> 
-  </div>
+<header>
+<div class="navbar">
+	<ul class="navbar-container">
+		<ul class="navbar-container">
+        <li class="left-underline nav-button brand-logo">Venture></li>
+	  <li class="nav-item"><a href="#" class="left-underline nav-button" ng-click='headerCtrl.logout' data-scroll>Logout</a></li>
+	  <li class="nav-item"><a href="auth/instagram" class="left-underline nav-button" data-scroll>Login</a></li>
+	</ul>
 </div>
+</header>

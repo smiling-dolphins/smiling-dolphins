@@ -1,9 +1,16 @@
 .map {
-  width: 650px;
-  height: 450px;
-  margin: 20px 20px;
+  width: 700px;
+  height: 500px;
+  margin: auto;
+  top: 10px;
   /*padding: 10px;*/
+  border-radius: 20px;
   display: inline-block;
   vertical-align: top;
-  border: 1px solid red;
+  
+}
+
+img {
+    width: 100%;
+    height: auto;
 }

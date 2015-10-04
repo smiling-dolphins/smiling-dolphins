@@ -1,3 +1,4 @@
+
 angular.module('Trips', [])
   .controller('TripsController', TripsController)
   .directive('tripsDir', function(){
@@ -7,11 +8,11 @@ angular.module('Trips', [])
       replace: true,
       controller: 'TripsController',
       controllerAs: 'tripsCtrl',
-      bindToController: true
+      bindToController: true,
     }
   });
 
-TripsController.inject = ['$http', 'Fetcher', 'Auth'];
+TripsController.inject = ['$http', 'Fetcher','$scope','Auth'];
 
 function TripsController($http, $window, Fetcher, Auth){
   var self = this;
@@ -20,6 +21,7 @@ function TripsController($http, $window, Fetcher, Auth){
   self.trips = Fetcher.trips || Fetcher.getTrips();
   self.currentTrip = Fetcher.currentTrip;
   self.isAuth = Auth.getAuth();
+  console.log("isAuth : ", self.isAuth)
   self.setTrip = function(index){
     self.currentTrip = Fetcher.setCurrentTrip(self.trips[index]);
     console.log(self.currentTrip);
