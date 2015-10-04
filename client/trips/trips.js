@@ -11,19 +11,20 @@ angular.module('Trips', [])
       bindToController: true,
     }
   });
-  
+
 TripsController.inject = ['$http', 'Fetcher','$scope','Auth'];
 
-function TripsController($http, Fetcher,$scope,Auth){
+function TripsController($http, $window, Fetcher, Auth){
   var self = this;
   self.hashtag;
   self.getTrips = Fetcher.getTrips;
   self.trips = Fetcher.trips || Fetcher.getTrips();
   self.currentTrip = Fetcher.currentTrip;
   self.isAuth = Auth.getAuth();
+  console.log("isAuth : ", self.isAuth)
   self.setTrip = function(index){
     self.currentTrip = Fetcher.setCurrentTrip(self.trips[index]);
-    $scope.$emit('profile-updated', {currentTrip:self.currentTrip});
+    console.log(self.currentTrip);
   }
 
   self.addTrip = function(){

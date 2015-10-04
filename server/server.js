@@ -90,12 +90,13 @@ app.get('/api/trips', function (req, res, next){
 });
 
 app.post('/api/trips', function (req, res) {
-  console.log('req:', req.body);
   if(!req.user) {
-    res.redirect("auth/instagram");
-  }
-  var tripName = req.body.name;
-  db.model('Trip').newTrip({name: tripName}).save();
+    app.get('/auth/instagram',
+      passport.authenticate('instagram'));
+  } else {
+    var tripName = req.body.name;
+    db.model('Trip').newTrip({name: tripName}).save();
+}
 
   // instaResults.forEach(function (photo) {
   //   db.model('Photo').newPhoto({
