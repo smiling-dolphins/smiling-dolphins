@@ -23,7 +23,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//Required for Passport
+//Required for Passport Sessions
 var session = require("express-session");
 app.use(session({
   key: 'our project',
@@ -35,21 +35,23 @@ app.use(session({
 app.use(express.static(__dirname + '/../client'));
 
 require("./passport.js")(passport)
+//Initialize Passport & Sessions
 
 app.use(passport.initialize());
 app.use(passport.session());
 
+//Checks if a User is logged in and if so sends client their profile Object
 app.get('/api/auth', function (req, res){
   if(req.user){
     res.json(req.user.toJSON());
   }
 });
 
-//Direct to Instagram Login
+//Direct to Instagram Login to Authenticate
 app.get('/auth/instagram',
   passport.authenticate('instagram'));
 
-//Redirect Back to Home Page upon Authentication
+//Redirect Back to Index upon Authentication
 app.get('/auth/instagram/callback', function (req, res, next) {
   passport.authenticate('instagram',
   function(err, user, info) {
@@ -60,15 +62,16 @@ app.get('/auth/instagram/callback', function (req, res, next) {
         res.redirect( '/' );
       });
     })(req, res, next);
-  //   res.json({name: 'jeff'});
 });
 
+//Destroys current Session
 app.get('/api/logout', function(req, res){
   req.session.destroy();
   req.logout();
   res.send('200');
 });
 
+//Fetches Trips by Id from Postgres DB
 app.get('/api/trip/:id', function(req, res){
   var tripId = req.params.id;
   console.log("this is the id: ", tripId);
@@ -78,6 +81,7 @@ app.get('/api/trip/:id', function(req, res){
   });
 });
 
+//Fetches all Trips from Postgres DB
 app.get('/api/trips', function (req, res, next){
   db.collection('Trips')
   .fetchAll()
@@ -86,10 +90,11 @@ app.get('/api/trips', function (req, res, next){
   });
 });
 
+//Adds Users hashtagged trip to DB & calls Instagram API for the User's photos with same hashtag
+//Instagram API Fetcher in utils.js
 app.post('/api/trips', function (req, res) {
   if(!req.user) {
-    app.get('/auth/instagram',
-      passport.authenticate('instagram'));
+    res.redirect('/');
   } else {
     var tripName = req.body.trip.name;
     utils.postTrips(req, res, tripName);
