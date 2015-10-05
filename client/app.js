@@ -4,8 +4,7 @@ angular.module('venshurApp', [
   'Header',
   'Map',
   'Trips',
-  'ui.bootstrap',
-  'PhotoView'
+  'ui.bootstrap'
 ])
 .run(['Auth','Fetcher','$http', function(Auth,Fetcher,$http){
   Auth.getAuth();
