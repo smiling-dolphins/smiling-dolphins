@@ -23,9 +23,9 @@
   > Step 3: Upon return from your trip, visit us at venshur.herokuapp.com, log in with your instagram credentials and map out your adventure by simply adding your hashtag!
 
 ## Michael Jordan says: ##
-  > "I use this app all the time!"^*
+  > "I use this app all the time!"<sup>*</sup>
 
 ## To wrap it up: ##
   > Start using our app!
 
-<small>^* Michael Jordan never said this</small>
+<sub><sup>*</sup>citation needed</sub>
