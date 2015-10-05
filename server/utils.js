@@ -5,6 +5,15 @@ require("../db/models/trip");
 require("../db/models/photo");
 
 var promiseGet = function(instagramUrl, tripName) {
+  /*
+   * Promisifies https.get (https required for Instagram)
+   * @param {String} instagramUrl
+   * @param {String} tripName
+   * return {Promise} object with instaData and tripName
+   *
+   * heavily borrowed from:
+   * https://github.com/petkaantonov/bluebird/issues/196
+   */
   return new Promise(function(resolve, reject) {
     var get = https.get(instagramUrl, function(response) {
       var instaData = '';
