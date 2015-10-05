@@ -27,9 +27,11 @@ function mapDir($modal,$log,mapService){
           center: new google.maps.LatLng(latitude, longitude)
         };
         map = new google.maps.Map(elem[0], mapOptions);
-          
-          scope.$on('profile-updated', function(event, profileObj) {
           var markers = [];
+          scope.$on('profile-updated', function(event, profileObj) {
+          markers.forEach(function(e){
+            e.setMap(null);
+          })
           mapService.trip.photos.forEach(function(e){
             var icon = new google.maps.MarkerImage(e.url, null, null, new google.maps.Point(0, 64), new google.maps.Size(30, 30));          
               var myLatlng = new google.maps.LatLng(e.lat,e.lng);
