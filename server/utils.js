@@ -5,7 +5,7 @@ require("../db/models/trip");
 require("../db/models/photo");
 
 var promiseGet = function(instagramUrl, tripName) {
-  return new Promise(function(resolve, reject) { 
+  return new Promise(function(resolve, reject) {
     var get = https.get(instagramUrl, function(response) {
       var instaData = '';
       response.on('data', function(data) {
@@ -113,7 +113,7 @@ module.exports.postTrips = function (req, res, tripName) {
   console.log('req.user', req.user);
   var tripName = req.body.trip.name;
   var instagramId = req.user.attributes.instagram_id;
-  
+
   var tripId = db.model('Trip').newTrip({
     name: tripName
   }).fetch()
