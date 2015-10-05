@@ -106,54 +106,13 @@ function mapservice(){
   };
 }
 
-function mapservice(){
+
+  function mapservice(){
   var mark,modalInstance,trip;
-  var tripMarkers;
-  var markers;
-
-  var addMarkers = function(markersArray,map) {
-    markers = [];
-    markersArray.photos.forEach(function(e){
-      var icon = new google.maps.MarkerImage(e.url, null, null, new google.maps.Point(0, 64), new google.maps.Size(30, 30));          
-              var myLatlng = new google.maps.LatLng(e.lat,e.lng);
-                var mark = new google.maps.Marker({
-                          position: myLatlng, 
-                          map: map,
-                          icon:icon,
-                          title: markersArray.name,
-                          animation: google.maps.Animation.DROP
-                });
-                mark.picture = e.url
-                mark.addListener('click', function(marker) {
-                  mapService.mark = mark;
-                  open('lg');
-                });
-                markers.push(mark);
-                mark.setMap(map);
-              });
-    var bounds = new google.maps.LatLngBounds();
-          for(i=0;i<markers.length;i++) {
-           bounds.extend(markers[i].getPosition());
-          }
-          map.fitBounds(bounds);
-        console.log('service side makers ', markers)
-          tripMarkers = markers;
-
-  };
-  var eraseMarkers = function(markersArray) {
-    for (var i = 0; i < markersArray.length; i++ ) {
-      markersArray[i].setMap(null);
-    }
-    markersArray.length = 0;
-  };
 
   return {
-    addMarkers: addMarkers,
-    eraseMarkers: eraseMarkers,
     trip:trip,
-    markers: markers,
     mark:mark,
-    tripMarkers: tripMarkers,
     modalInstance:modalInstance,
   };
 }
