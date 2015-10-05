@@ -75,5 +75,11 @@ li.active > a.nav-button {
 }
 .brand-logo {
   float: left;
-  cursor: default;
+  left: 20px;
+  font-family: 'Lobster';
+  color: white;
+
+}
+li.left-underline.nav-button.brand-logo {
+    font-size: 40px;
 }
