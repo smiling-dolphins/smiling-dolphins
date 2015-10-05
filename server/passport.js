@@ -5,11 +5,12 @@ require("../db/models/user");
 
 module.exports = function (passport) {
 
+//Places the user into a passport session if logged in
   passport.serializeUser(function(user, done) {
     done(null, user ? user.get('instagram_id') : false);
   });
 
-  // used to deserialize the user
+//Attaches User Instagram Profile to every Req body from client;
   passport.deserializeUser(function(id, done) {
     db.model('User').fetchById({ instagram_id: id })
     .then(function(user) {
@@ -19,7 +20,8 @@ module.exports = function (passport) {
       done(err, false);
     });
   });
-  //Define Instagram Strategy
+
+//Define Instagram Passport Strategy
   passport.use(new InstagramStrategy({
     clientID: Auth.clientId,
     clientSecret: Auth.clientSecret,
@@ -27,16 +29,16 @@ module.exports = function (passport) {
     enabledProof: false,
     callbackURL: "http://127.0.0.1:8000/auth/instagram/callback"
   },
-  //____________________________________________________________________________
-  //If User isn't stored in our database, create a new user and store the Instagram ID in our database
 
+//If User isn't stored in our database, create a new user and store the Instagram ID in our database
+//Called immediately after '/auth/instagram/callback'
   function(req, accessToken, refreshToken, profile, done) {
     db.model('User').fetchById({
       username: profile.username,
       instagram_id: profile.id
     }).then(function(user) {
       if (!user) {
-      // if user does not exist in our database
+      // if user does not exist in our database add them
         return db.model('User').newUser({
           username: profile.username,
           instagram_id: profile.id
@@ -47,7 +49,6 @@ module.exports = function (passport) {
         return user;
       }
     }).then(function(user) {
-      // see fiddio user.js line 98
       console.log("this is profile:", profile);
       return user;
     }).then(function(user) {
