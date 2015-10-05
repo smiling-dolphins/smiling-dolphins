@@ -104,6 +104,7 @@ footer {
 
 }
 footer h1 {
+  padding: 20px;
   text-align: center;
   font-family: 'Lobster', sans-serif
 }
@@ -127,7 +128,7 @@ footer p {
 .wrap{
   align-content: center;
   height: auto;
-  width: 300px;
+  width: 150px;
   display:inline-block;
   margin: 0 auto;
 }
